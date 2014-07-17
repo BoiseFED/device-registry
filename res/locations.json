@@ -1,0 +1,10 @@
+{
+  "values": [
+    "boise",
+    "chicago",
+    "los angeles",
+    "new york",
+    "seatle"
+  ],
+  "message": "location {VALUE} not found"
+}
