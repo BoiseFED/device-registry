@@ -1,0 +1,28 @@
+{
+  "name": "deviceRegistry",
+  "version": "0.0.1",
+  "description": "aq device registry",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.6.1",
+    "mongoose": "^3.8.13",
+    "morgan": "^1.1.1",
+    "node-restful": "^0.1.17",
+    "underscore": "^1.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BoiseFED/device-registry.git"
+  },
+  "author": "BoiseFED",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BoiseFED/device-registry/issues"
+  },
+  "homepage": "https://github.com/BoiseFED/device-registry"
+}
