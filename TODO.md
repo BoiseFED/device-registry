@@ -1,3 +1,3 @@
-- GRUNT: jshint js files
-- GRUNT: JSONLint json files
-- SCHEMA: logical delete
+- [] GRUNT: jshint js files
+- [] GRUNT: JSONLint json files
+- [] SCHEMA: logical delete
