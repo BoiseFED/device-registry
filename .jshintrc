@@ -91,7 +91,8 @@
 
     "maxerr"        : 10,      // Maximum errors before stopping.
     "predef"        : [         // Extra globals.
-      "requirejs"
+      "requirejs",
+      "define"
     ],
     "indent"        : 2,         // Specify indentation spacing
     "quotmark"     : "single"
