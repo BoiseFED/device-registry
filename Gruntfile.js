@@ -62,6 +62,9 @@ module.exports = function (grunt) {
       },
       html: {
         files: ['public/**/*.html', 'public/**/*.hbs']
+      },
+      server: {
+        files: ['server.js']
       }
     }
   });

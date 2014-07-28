@@ -95,5 +95,6 @@
       "define"
     ],
     "indent"        : 2,         // Specify indentation spacing
-    "quotmark"     : "single"
+    "quotmark"      : "single",
+    "maxlen"        : 100
 }
