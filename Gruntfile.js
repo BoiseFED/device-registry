@@ -23,6 +23,9 @@ module.exports = function (grunt) {
       },
       unit_test: {
         src: ['test/**/*.js']
+      },
+      server_test: {
+        src: ['server.js']
       }
     },
     jsonlint: {
