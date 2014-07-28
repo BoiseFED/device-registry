@@ -15,11 +15,10 @@ var skip = function(req, res) {
 }
 
 var logOptions = {
-  format: 'tiny',
   skip: skip
 }
 
-app.use(logger(logOptions));
+app.use(logger('tiny', logOptions));
 app.use(express.static(__dirname + '/public'));
 app.use(express.query());
 
@@ -47,4 +46,4 @@ var Device = app.device = restful.model('device', mongoose.Schema({
 
 Device.register(app, '/api/devices');
 
-app.listen(process.env.PORT || 8082);
+app.listen(process.env.PORT || 8000);

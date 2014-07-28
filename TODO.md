@@ -1,3 +1,5 @@
-- [ ] GRUNT: jshint js files
-- [ ] GRUNT: JSONLint json files
+- [X] GRUNT: jshint js files
+- [X] GRUNT: JSONLint json files
+- [X] RJS: Create Entry
 - [ ] SCHEMA: logical delete
+- [ ] BB: Create Model

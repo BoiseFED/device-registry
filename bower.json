@@ -1,0 +1,22 @@
+{
+  "name": "device-registry",
+  "version": "0.0.0",
+  "homepage": "https://github.com/BoiseFED/device-registry",
+  "authors": [
+    "Adam Clark <adamclerk@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "requirejs": "~2.1.14"
+  }
+}
