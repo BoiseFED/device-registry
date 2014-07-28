@@ -4,6 +4,7 @@
   "description": "aq device registry",
   "main": "server.js",
   "dependencies": {
+    "body-parser": "^1.5.2",
     "express": "^4.6.1",
     "grunt": "~0.4.2",
     "grunt-concurrent": "^0.5.0",

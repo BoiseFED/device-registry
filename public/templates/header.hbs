@@ -1,0 +1,34 @@
+<h1>Device Registry <small class="js-toggle button">{{#if isFormHidden}}+{{else}}-{{/if}}</small></h1>
+<div class="form {{#if isFormHidden}}hidden{{/if}}">
+  <form>
+    <table>
+      <tr>
+        <td>Name</td>
+        <td><input type='text' name='name' class='js-name'/></td>
+      </tr>
+      <tr>
+        <td>Location</td>
+        <td class='js-location-container'></td>
+      </tr>
+      <tr>
+        <td>OS</td>
+        <td class='js-os-container'></td>
+      </tr>
+      <tr>
+        <td>Version</td>
+        <td><input type='text' name='version' class='js-version'/></td>
+      </tr>
+    </table>
+
+{{!--
+    <textarea class="js-new-device new-device">
+{
+  "location":"boise",
+  "os":"ios",
+  "version":"7"
+}
+    </textarea>
+    --}}
+    <input type="submit" value="save"/>
+  </form>
+</div>
