@@ -62,9 +62,12 @@ module.exports = function (grunt) {
       },
       html: {
         files: ['public/**/*.html', 'public/**/*.hbs']
+<<<<<<< HEAD
       },
       server: {
         files: ['server.js']
+=======
+>>>>>>> d984f0aa185c195b293b4c1adb3ac96a51ed314b
       }
     }
   });

@@ -30,6 +30,7 @@ requirejs.config({
 requirejs(
   ['header-view',
   'footer-view',
+<<<<<<< HEAD
   'content-view',
   'device-collection'],
   function (HeaderView, FooterView, ContentView, DeviceCollection) {
@@ -37,6 +38,13 @@ requirejs(
     headerView = new HeaderView({collection: deviceCollection}),
     footerView = new FooterView(),
     contentView = new ContentView({model: deviceCollection});
+=======
+  'device-collection'],
+  function (HeaderView, FooterView, DeviceCollection) {
+  var headerView = new HeaderView(),
+    footerView = new FooterView(),
+    deviceCollection = new DeviceCollection();
+>>>>>>> d984f0aa185c195b293b4c1adb3ac96a51ed314b
 
   deviceCollection.fetch();
 });
