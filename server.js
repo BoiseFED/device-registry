@@ -38,6 +38,14 @@ var os = {
   message: resources.os.message
 };
 
+app.get('/resources/:resource', function (req, res) {
+  if (resources[req.params.resource]) {
+    res.json(resources[req.params.resource]);
+  } else {
+    res.status(404).send('Not Found: ' + req.params.resource);
+  }
+});
+
 var Device = app.device = restful.model('device', mongoose.Schema({
     name: {type: 'string'},
     location: {type: 'string', enum: locations, required: true},
@@ -53,12 +61,6 @@ var Device = app.device = restful.model('device', mongoose.Schema({
 
 Device.register(app, '/api/devices');
 
-app.get('/resources/:resource', function (req, res) {
-  if (resources[req.params.resource]) {
-    res.json(resources[req.params.resource]);
-  } else {
-    res.status(404).send('Not Found: ' + req.params.resource);
-  }
-});
+
 
 app.listen(process.env.PORT || 8000);
