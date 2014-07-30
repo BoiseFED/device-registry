@@ -92,7 +92,12 @@
     "maxerr"        : 10,      // Maximum errors before stopping.
     "predef"        : [         // Extra globals.
       "requirejs",
-      "define"
+      "define",
+      "describe",
+      "it",
+      "mochaPhantomJS",
+      "mocha",
+      "chai"
     ],
     "indent"        : 2,         // Specify indentation spacing
     "quotmark"      : "single",

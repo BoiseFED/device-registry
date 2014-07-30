@@ -79,6 +79,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-concurrent');
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'jsonlint']);
+  grunt.registerTask('check', ['jshint', 'jsonlint']);
   grunt.registerTask('dev', ['default', 'concurrent:dev']);
+  grunt.registerTask('default', ['dev']);
 };
