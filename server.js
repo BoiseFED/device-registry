@@ -26,7 +26,9 @@ app.use(bodyParser.json());
 app.use(express.query());
 
 var dbOptions = JSON.parse(fs.readFileSync('config.json', 'utf8'));
-mongoose.connect('mongodb://@ds027779.mongolab.com:27779/ag_devicedb', dbOptions);
+var dbUri = dbOptions.uri;
+delete dbOptions.url;
+mongoose.connect(dbUri, dbOptions);
 
 var locations = {
   values: resources.locations.values,
