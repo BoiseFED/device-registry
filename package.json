@@ -21,9 +21,7 @@
     "morgan": "^1.1.1",
     "node-restful": "^0.1.17",
     "phantomjs": "^1.9.7-15",
-    "underscore": "^1.6.0"
-  },
-  "devDependencies": {
+    "underscore": "^1.6.0",
     "grunt-contrib-sass": "^0.7.3"
   },
   "scripts": {
