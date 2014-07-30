@@ -80,6 +80,6 @@ module.exports = function (grunt) {
 
   // Default task.
   grunt.registerTask('check', ['jshint', 'jsonlint']);
-  grunt.registerTask('dev', ['default', 'concurrent:dev']);
+  grunt.registerTask('dev', ['check', 'concurrent:dev']);
   grunt.registerTask('default', ['dev']);
 };
