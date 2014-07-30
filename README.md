@@ -1,5 +1,5 @@
-device-registry
-===============
+device-registry  ![build status](https://api.travis-ci.org/BoiseFED/device-registry.svg)
+========================================================================================
 
 ### Instructions
 Install mongo
@@ -16,7 +16,7 @@ create a `config.json` file with the format of
   "uri": "mongodb://localhost:27017/ag_devicedb"
 }
 ```
-to connect to your mongo instance
+also...
 
 DONT CHECK THE `config.json` IN!
 
