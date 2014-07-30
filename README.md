@@ -1,4 +1,4 @@
-device-registry  ![build status](https://api.travis-ci.org/BoiseFED/device-registry.svg)
+device-registry  ![build status](https://api.travis-ci.org/BoiseFED/device-registry.svg?branch=master)
 ========================================================================================
 
 ### Instructions
