@@ -41,6 +41,17 @@ module.exports = function (grunt) {
         }
       }
     },
+    sass: {
+      build: {
+        options: {
+          style: 'expanded',
+          lineNumbers: true
+        },
+        files: {
+          'public/css/main.css': 'public/scss/main.scss'
+        }
+      }
+    },
     exec: {
       run: 'node server.js'
     },
@@ -60,6 +71,10 @@ module.exports = function (grunt) {
         files: '<%= jsonlint.resources.src %>',
         tasks: ['jsonlint:resources']
       },
+      scss: {
+        files: ['public/scss/main.scss'],
+        tasks: ['sass:build']
+      },
       html: {
         files: ['public/**/*.html', 'public/**/*.hbs']
       },
@@ -77,9 +92,10 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-jsonlint');
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-concurrent');
+  grunt.loadNpmTasks('grunt-contrib-sass');
 
   // Default task.
-  grunt.registerTask('check', ['jshint', 'jsonlint']);
+  grunt.registerTask('check', ['jshint', 'jsonlint', 'sass']);
   grunt.registerTask('dev', ['check', 'concurrent:dev']);
   grunt.registerTask('default', ['dev']);
 };

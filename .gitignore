@@ -3,3 +3,5 @@ node_modules
 public/vendor
 config.json
 *.orig
+public/css/main.css
+.sass-cache
