@@ -1,0 +1,12 @@
+.hidden {
+  display: none;
+}
+
+.button {
+  cursor: pointer;
+}
+
+.new-device {
+  height: 200px;
+  width: 300px;
+}

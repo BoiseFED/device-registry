@@ -61,7 +61,10 @@ module.exports = function (grunt) {
         tasks: ['jsonlint:resources']
       },
       html: {
-        files: 'public/**/*.html'
+        files: ['public/**/*.html', 'public/**/*.hbs']
+      },
+      server: {
+        files: ['server.js']
       }
     }
   });

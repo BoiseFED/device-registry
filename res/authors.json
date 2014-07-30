@@ -1,0 +1,8 @@
+{
+  "values": [
+    "adam",
+    "josh",
+    "matt"
+  ],
+  "message": "author {VALUE} not found"
+}

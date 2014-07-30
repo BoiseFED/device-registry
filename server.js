@@ -5,7 +5,8 @@ var express = require('express'),
   logger = require('morgan'),
   fs = require('fs'),
   app = express(),
-  res = require('./res');
+  resources = require('./res'),
+  bodyParser = require('body-parser');
   //locations = JSON.parse(fs.readFileSync('res/locations.json', 'utf8'));
 
 var skip = function (req, res) {
@@ -21,30 +22,47 @@ var logOptions = {
 
 app.use(logger('tiny', logOptions));
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.json());
 app.use(express.query());
 
 var dbOptions = JSON.parse(fs.readFileSync('config.json', 'utf8'));
-mongoose.connect('mongodb://@ds027779.mongolab.com:27779/ag_devicedb', dbOptions);
+var dbUri = dbOptions.uri;
+delete dbOptions.url;
+mongoose.connect(dbUri, dbOptions);
 
 var locations = {
-  values: res.locations.values,
-  message: res.locations.message
+  values: resources.locations.values,
+  message: resources.locations.message
 };
 
+var os = {
+  values: resources.os.values,
+  message: resources.os.message
+};
+
+app.get('/resources/:resource', function (req, res) {
+  if (resources[req.params.resource]) {
+    res.json(resources[req.params.resource]);
+  } else {
+    res.status(404).send('Not Found: ' + req.params.resource);
+  }
+});
+
 var Device = app.device = restful.model('device', mongoose.Schema({
+    name: {type: 'string'},
     location: {type: 'string', enum: locations, required: true},
-    os: {type: 'string', required: true},
+    os: {type: 'string', enum: os, required: true},
     version: {type: 'string', required: true},
     comments: [{
       body: {type: 'string'},
-      date: {type: 'Date'}
+      author: {type: 'string'},
+      date: {type: 'Date', default: Date.now}
     }]
   })
 ).methods(['get', 'post', 'put', 'delete']);
 
-//var History = app.history = restful.model('device', mongoose.Schema({
-//}))
-
 Device.register(app, '/api/devices');
+
+
 
 app.listen(process.env.PORT || 8000);
