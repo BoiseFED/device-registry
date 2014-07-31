@@ -1,0 +1,54 @@
+//Device Grid
+$gutter: 1.7%;
+
+.devices-container {
+  width:960px;
+  margin: 0 auto;
+  @extend .clearfix;
+}
+
+.device {
+    background:$lightgrey;
+    border:1px #d4d4d4 solid;
+    float:left;
+    width:32.2%;
+    height:309px;
+    text-align:center;
+    margin: 0 $gutter $gutter 0;
+    overflow:hidden;
+    position:relative;
+
+    &:nth-child(3n+3) {
+      margin-right:0;
+    }
+
+    &:nth-child(3n+3) {
+      float:right;
+    }
+
+    .device-info {
+      position: absolute;
+      top: 230px;
+      width: 100%;
+      height:309px;
+    }
+
+    &:hover {
+      .device-info {
+        top:0;
+        background: rgba(255,255,255,0.9);
+        .extra-info {
+          display:block;
+        }
+      }
+    }
+
+    .image {
+      margin:30px 0 0;
+    }
+
+    .extra-info {
+      display:none;
+    }
+
+}

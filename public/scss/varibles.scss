@@ -3,3 +3,11 @@ $blue: #3967ce;
 $green: #299883;
 $slate: #46494f;
 $lightgrey: #f8f8f8;
+
+.clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

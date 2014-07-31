@@ -130,35 +130,7 @@ h4 {
   margin:5px 0;
 }
 
-//Device Grid
-
-.devices-container {
-  width:960px;
-  margin: 0 auto;
-
-}
-
-.device {
-    background:$lightgrey;
-    border:1px #d4d4d4 solid;
-    float:left;
-    width:32.3%;
-    height:309px;
-    text-align:center;
-    margin: 0 1.35% 1.35% 0;
-    overflow:hidden;
-
-    &:nth-child(0n+3) {
-      margin-right:0;
-    }
-
-    .image {
-      margin:30px 0 0;
-    }
-
-
-}
-
+@import 'device-grid';
 
 //Footer
 .footer {

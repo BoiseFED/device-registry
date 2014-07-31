@@ -7,10 +7,8 @@
         <h3 class="title">{{name}}</h3>
         <h4 class="os">{{os}} {{version}}</h4>
 
-
-            <h4 class="location">{{location}}</h4>
-
-
+      <div class="extra-info">
+        <h4 class="location">{{location}}</h4>
         <div class="comments">
           <h4>Comments</h4>
             {{#each comments}}
@@ -18,8 +16,9 @@
               <span class="date">{{date}}</span>
               <span class="comment-body">{{body}}</span>
             {{/each}}
-
         </div>
+      </div>
+
       </div>
     </div>
 
