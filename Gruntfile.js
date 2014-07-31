@@ -16,6 +16,19 @@ module.exports = function (grunt) {
         src: ['sass', 'convert']
       }
     },
+    checkDependencies: {
+      npm: {
+        options: {
+          install: true
+        }
+      },
+      bower: {
+        options: {
+          packageManager: 'bower',
+          install: true
+        }
+      }
+    },
     jshint: {
       options: {
         jshintrc: './.jshintrc'
@@ -35,7 +48,7 @@ module.exports = function (grunt) {
     },
     jsonlint: {
       resources: {
-        src: [ 'res/**/*.json' ]
+        src: [ 'res/**/*.json', 'test/**/fixtures/**/*.json' ]
       }
     },
     concurrent: {
@@ -101,9 +114,11 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-path-check');
+  grunt.loadNpmTasks('grunt-check-dependencies');
 
   // Default task.
   grunt.registerTask('check', [
+    'checkDependencies',
     'path-check',
     'jshint',
     'jsonlint',
