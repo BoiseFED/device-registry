@@ -4,17 +4,52 @@
 	box-sizing: border-box;
 }
 
+$font-stack: Futura, "Trebuchet MS", Arial, sans-serif;
+
+// Colors
+$green:#299883; 
+$black:#333a38;
+$white:#fff;
+
+
 body {
-	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font: 100% $font-stack;
+  color: $black;
+}
+//
+//Typography
+h1,
+.js-toggle.button,
+.sort {
+	text-transform: uppercase;
+	font-size: 22px;
+	line-height: 20px;
+	display: inline-block;
+
+	.logo {
+		vertical-align: -60%;
+		margin-right: 10px;
+	}
 }
 
+h1 {
+	margin-right: 15%;
+}
+
+h2 {
+	font-size: 20px;
+	color: $white;
+	margin: 0 0 20px;
+	font-weight: normal;
+}
+//
 .container {
 	width: 100%;
 	border-collapse: collapse;
 	position: relative;
 	margin: auto;
 	background-color: white;
-	border-top: 20px solid #333a38;
+	border-top: 20px solid $black;
 	
 	.header{
 		width: 100%;
@@ -22,18 +57,18 @@ body {
 		padding: 1% 0 3%;
 
 		small {
-			margin-right: 5%;
+			margin: 0 100px 20px 0;
 		}
 
 		.green-circle {
 			border-radius: 50%;
 			width: 28px;
 			height: 28px; 
-			background-color: #299883;
+			background-color: $green;
 			display: inline-block;
 			vertical-align: -2px;
 			text-align: center;
-			color: #fff;
+			color: $white;
 			font-size: 26px;
 			padding-top: 4px;
 			&.minus {
@@ -53,8 +88,8 @@ body {
 		left: 6px;
 		width: 15px;
 		height: 12px;
-		border-top: 7px double #fff;
-		border-bottom: 2px solid #fff;
+		border-top: 7px double $white;
+		border-bottom: 2px solid $white;
 		}
 
 		nav {
@@ -68,11 +103,11 @@ body {
 			border-radius: 50%;
 			width: 28px;
 			height: 28px; 
-			background-color: #299883;
+			background-color: $green;
 			display: inline-block;
 			vertical-align: -6px;
 			text-align: center;
-			color: #fff;
+			color: $white;
 			font-size: 22px;
 			padding-top: 4px;
 		}
@@ -80,7 +115,47 @@ body {
 	}
 
 	.form {
-		background-color: #333a38;		
+		background-color: $black;	
+		padding: 20px 5%;
+
+		table {
+			width: 70%;
+		}
+
+		label {
+			color: $white;
+		}
+
+		td, input[type="radio"] {
+			padding: 0 10px 8px 0;
+
+			&.first {
+				width: 12%;
+				vertical-align: top;
+			}
+
+			&.second {
+				width: 20%;
+			}
+		}
+
+		input[type="submit"]{
+			border: 0;
+			background-color: $green;
+			color: $white;
+			padding: 10px 50px;
+			outline: none;
+		}
+
+		select {
+		}
+
+		input[type="text"] {
+		}
+
+		.save {
+			vertical-align: bottom;
+		}
 	}
 
 }
@@ -96,26 +171,6 @@ body {
 .new-device {
   height: 200px;
   width: 300px;
-}
-
-//Typography
-h1,
-.js-toggle.button,
-.sort {
-	text-transform: uppercase;
-	font-size: 20px;
-	line-height: 20px;
-	display: inline-block;
-	font-weight: normal;
-
-	.logo {
-		vertical-align: -60%;
-		margin-right: 10px;
-	}
-}
-
-h1 {
-	margin-right: 15%;
 }
 
 //Footer
