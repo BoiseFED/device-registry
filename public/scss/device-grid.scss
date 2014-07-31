@@ -28,18 +28,13 @@ $gutter: 1.7%;
 
     .device-info {
       position: absolute;
-      top: 230px;
+      top: 180px;
       width: 100%;
       height:309px;
-    }
+      transition: .25s all;
 
-    &:hover {
-      .device-info {
-        top:0;
-        background: rgba(255,255,255,0.9);
-        .extra-info {
-          display:block;
-        }
+      h3.title {
+        margin-top: 50px;
       }
     }
 
@@ -50,5 +45,39 @@ $gutter: 1.7%;
     .extra-info {
       display:none;
     }
+
+    &:hover {
+      .device-info {
+        top:0;
+        background: rgba(255,255,255,0.9);
+        transition: .25s all;
+
+        h3.title {
+          margin-top: 50px;
+        }
+
+        .comments {
+          position:absolute;
+          bottom:0;
+          padding:20px 10px;
+          background:rgba(242,242,242,0.9);
+          max-height:170px;
+          overflow:auto;
+
+          .comment {
+            clear:both;
+          }
+
+          span {
+            font-size:12px;
+          }
+        }
+
+        .extra-info {
+          display:block;
+        }
+      }
+    }
+
 
 }

@@ -9,7 +9,7 @@
 $font-stack: Futura, "Trebuchet MS", Arial, sans-serif;
 
 // Colors
-$green:#299883; 
+$green:#299883;
 $black:#333a38;
 $white:#fff;
 
@@ -34,9 +34,7 @@ h1,
 	}
 }
 
-h1 {
-	margin-right: 15%;
-}
+
 
 h2 {
 	font-size: 20px;
@@ -58,14 +56,23 @@ h2 {
 		margin: 0 auto;
 		padding: 1% 0 3%;
 
+		h1 {
+			margin-right: 18%;
+		}
+
 		small {
-			margin: 0 100px 20px 0;
+			margin: 0 70px 20px 0;
+
+			&.sort {
+				margin-right:0;
+				margin-left: 22px;
+			}
 		}
 
 		.green-circle {
 			border-radius: 50%;
 			width: 28px;
-			height: 28px; 
+			height: 28px;
 			background-color: $green;
 			display: inline-block;
 			vertical-align: -2px;
@@ -95,7 +102,9 @@ h2 {
 		}
 
 		nav {
-			padding: 0 5%;
+			padding: 0;
+			width:960px;
+			margin:0 auto;
 		}
 	}
 
@@ -104,7 +113,7 @@ h2 {
 			margin-right: 5px;
 			border-radius: 50%;
 			width: 28px;
-			height: 28px; 
+			height: 28px;
 			background-color: $green;
 			display: inline-block;
 			vertical-align: -6px;
@@ -117,8 +126,11 @@ h2 {
 	}
 
 	.form {
-		background-color: $black;	
-		padding: 20px 5%;
+		background-color: $black;
+		padding: 20px 0;
+		border: 3px #bdc0bf solid;
+		border-width:3px 0 3px 0;
+
 
 		table {
 			width: 70%;
@@ -175,6 +187,11 @@ h2 {
   width: 300px;
 }
 
+.wrap {
+	width:960px;
+	margin:0 auto;
+}
+
 //Typography
 h1,
 .js-toggle.button,
@@ -191,9 +208,6 @@ h1,
 	}
 }
 
-h1 {
-	margin-right: 15%;
-}
 
 h3 {
   font-size: 18px;
