@@ -35,7 +35,7 @@
     "es5"           : false,    // Allow EcmaScript 5 syntax.
     "esnext"        : false,    // Allow ES.next specific features such as `const` and `let`.
     "evil"          : false,    // Tolerate use of `eval`.
-    "expr"          : false,    // Tolerate `ExpressionStatement` as Programs.
+    "expr"          : true,    // Tolerate `ExpressionStatement` as Programs.
     "funcscope"     : false,    // Tolerate declarations of variables inside of control structures while accessing them later from the outside.
     "globalstrict"  : false,    // Allow global "use strict" (also enables 'strict').
     "iterator"      : false,    // Allow usage of __iterator__ property.
@@ -100,7 +100,8 @@
       "chai",
       "beforeEach",
       "afterEach",
-      "expect"
+      "expect",
+      "sinon"
     ],
     "indent"        : 2,         // Specify indentation spacing
     "quotmark"      : "single",
