@@ -4,7 +4,6 @@ define(['backbone', 'bus'], function (Backbone, bus) {
       return false;
     },
     parse: function (response) {
-      console.log(response);
       return response;
     }
   });

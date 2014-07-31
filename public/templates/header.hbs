@@ -1,4 +1,8 @@
-<h1>Device Registry <small class="js-toggle button">{{#if isFormHidden}}+{{else}}-{{/if}}</small></h1>
+<nav>
+  <h1><img src="images/acquity-logo.jpg" alt="Acquity Mobile Lab" class="logo" />Acquity Group / Mobile Lab</h1>
+  <small class="js-toggle button">{{#if isFormHidden}}<span class="green-circle plus">+</span> ADD DEVICE {{else}}<span class="green-circle minus">-</span> ADD DEVICE{{/if}}</small>
+  <small class="sort"><span class="sort"><span class="menu circle"></span>SORT DEVICE</span></small>
+</nav>
 <div class="form {{#if isFormHidden}}hidden{{/if}}">
   <form>
     <table>

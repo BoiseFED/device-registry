@@ -97,7 +97,10 @@
       "it",
       "mochaPhantomJS",
       "mocha",
-      "chai"
+      "chai",
+      "beforeEach",
+      "afterEach",
+      "expect"
     ],
     "indent"        : 2,         // Specify indentation spacing
     "quotmark"      : "single",
