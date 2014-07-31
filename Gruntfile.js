@@ -35,7 +35,7 @@ module.exports = function (grunt) {
     },
     jsonlint: {
       resources: {
-        src: [ 'res/**/*.json' ]
+        src: [ 'res/**/*.json', 'test/**/fixtures/**/*.json' ]
       }
     },
     concurrent: {

@@ -23,6 +23,8 @@
     "morgan": "^1.1.1",
     "node-restful": "^0.1.17",
     "phantomjs": "^1.9.7-15",
+    "sinon": "^1.10.3",
+    "sinon-chai": "^2.5.0",
     "underscore": "^1.6.0"
   },
   "scripts": {

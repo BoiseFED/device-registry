@@ -8,32 +8,53 @@ requirejs.config({
     json: '../vendor/requirejs-plugins/src/json',
     underscore: '../vendor/underscore/underscore',
     chai: '../../node_modules/chai/chai',
+    sinon: '../vendor/sinonjs/sinon',
+    sinonChai: '../../node_modules/sinon-chai/lib/sinon-chai',
     mocha: '../../node_modules/mocha/mocha',
     fixtures: '../../test/browser/fixtures',
     test: '../../test/browser'
   },
   shim: {
+    'sinon': {
+      exports: 'sinon'
+    },
     'mocha': {
       exports: 'mocha'
+    },
+    'sinonFakeServer': {
+      deps: ['sinon']
     }
   }
 });
 
-require(['require', 'chai', 'mocha'], function (require, chai, mocha) {
+require([
+  'require',
+  'chai',
+  'mocha',
+  'sinon',
+  'sinonChai'
+], function (
+  require,
+  chai,
+  mocha,
+  sinon,
+  sinonChai) {
   // Chai
-  window.expect = chai.expect;
+    window.expect = chai.expect;
+    window.sinon = sinon;
+    chai.use(sinonChai);
 
-  /*globals mocha */
-  mocha.ui('bdd');
-  mocha.reporter('html');
+    /*globals mocha */
+    mocha.ui('bdd');
+    mocha.reporter('html');
 
-  require([
-    'test/backbone'
-  ], function (require) {
+    require([
+      'test/backbone'
+    ], function (require) {
       if (window.mochaPhantomJS) {
         return mochaPhantomJS.run();
       } else {
         return mocha.run();
       }
     });
-});
+  });
