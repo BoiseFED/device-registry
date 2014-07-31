@@ -12,9 +12,11 @@
         <div class="comments">
           <h4>Comments</h4>
             {{#each comments}}
-              <span class="author">{{author}}</span>
-              <span class="date">{{date}}</span>
-              <span class="comment-body">{{body}}</span>
+              <div class="comment">
+                <span class="author">{{author}}</span>
+                <span class="date">{{date}}</span>
+                <span class="comment-body">{{body}}</span>
+              </div>
             {{/each}}
         </div>
       </div>
