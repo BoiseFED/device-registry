@@ -5,3 +5,12 @@ $slate: #46494f;
 $lightgrey: #f8f8f8;
 $black: #333a38;
 $white: #fff;
+
+.clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+

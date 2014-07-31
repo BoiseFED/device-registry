@@ -1,31 +1,26 @@
-<table width="100%">
-  <tbody>
+<div class="devices-container">
   {{#each .}}
-    <tr>
-      <td colspan="3">{{name}}</td>
-    </tr>
-    <tr>
-      <td>{{location}}</td>
-      <td>{{os}}</td>
-      <td>{{version}}</td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        Comments
-      </td>
-    </tr>
-    {{#each comments}}
-      <tr>
-        <td colspan="2">{{author}}</td>
-        <td>{{date}}</td>
-      </tr>
-      <tr>
-        <td colspan="3">{{body}}</td>
-      </tr>
-    {{/each}}
-    <tr>
-      <td colspan="3"><hr/></td>
-    </tr>
+  <div class="device">
+
+<div class="image"><img src="images/fpo-device.png"/></div>
+      <div class="device-info">
+        <h3 class="title">{{name}}</h3>
+        <h4 class="os">{{os}} {{version}}</h4>
+
+      <div class="extra-info">
+        <h4 class="location">{{location}}</h4>
+        <div class="comments">
+          <h4>Comments</h4>
+            {{#each comments}}
+              <span class="author">{{author}}</span>
+              <span class="date">{{date}}</span>
+              <span class="comment-body">{{body}}</span>
+            {{/each}}
+        </div>
+      </div>
+
+      </div>
+    </div>
+
   {{/each}}
-  </tbody>
-<table>
+  </div>
