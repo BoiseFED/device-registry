@@ -11,6 +11,24 @@ module.exports = function (grunt) {
       '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
       ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
     // Task configuration.
+    'path-check': {
+      'developer-tools': {
+        src: ['sass', 'convert']
+      }
+    },
+    checkDependencies: {
+      npm: {
+        options: {
+          install: true
+        }
+      },
+      bower: {
+        options: {
+          packageManager: 'bower',
+          install: true
+        }
+      }
+    },
     jshint: {
       options: {
         jshintrc: './.jshintrc'
@@ -30,7 +48,7 @@ module.exports = function (grunt) {
     },
     jsonlint: {
       resources: {
-        src: [ 'res/**/*.json' ]
+        src: [ 'res/**/*.json', 'test/**/fixtures/**/*.json' ]
       }
     },
     concurrent: {
@@ -53,7 +71,9 @@ module.exports = function (grunt) {
       }
     },
     exec: {
-      run: 'node server.js'
+      run: 'node server.js',
+      node_test: 'npm run test-node',
+      browser_test: 'npm run test-browser'
     },
     watch: {
       options: {
@@ -93,9 +113,19 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-path-check');
+  grunt.loadNpmTasks('grunt-check-dependencies');
 
   // Default task.
-  grunt.registerTask('check', ['jshint', 'jsonlint', 'sass']);
+  grunt.registerTask('check', [
+    'checkDependencies',
+    'path-check',
+    'jshint',
+    'jsonlint',
+    'sass',
+    'exec:node_test',
+    'exec:browser_test'
+  ]);
   grunt.registerTask('dev', ['check', 'concurrent:dev']);
   grunt.registerTask('default', ['dev']);
 };

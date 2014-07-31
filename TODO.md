@@ -1,12 +1,9 @@
 ## ToDo
 - [ ] BB: Create Global Error View listening on bus
-- [ ] CONFIG: Move Mongo server value into config.json
 - [ ] DOC: How to create local mongodo instance
 - [ ] DOC: How to create config.json
 - [ ] DOC: Explain and document standards
 - [ ] FE & BE: Create validation function for Device that can be shared FE & BE
-- [ ] STYLE: Use a pre-parser
-- [ ] TEST: Adding Device with starting comment
 - [ ] TEST: ToggleForm function in header-view.js
 - [ ] TEST: _getFormData in header-view.js
 - [ ] TEST: Backend resource loading
@@ -18,3 +15,6 @@
 - [X] BB: Create Model
 - [X] TEST: Add harness & grunt task for FE
 - [X] TEST: Add harness & grunt task for BE
+- [X] CONFIG: Move Mongo server value into config.json
+- [X] STYLE: Use a pre-parser
+- [X] TEST: Adding Device with starting comment

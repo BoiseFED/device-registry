@@ -3,10 +3,10 @@ define(
   'handlebars',
   'location-model',
   'text!tmpl/dropdown.hbs'],
-  function (Backbone, Handlebars, Model, tmpl) {
+  function (Backbone, Handlebars, model, tmpl) {
   return Backbone.View.extend({
     initialize: function () {
-      this.model = new Model();
+      this.model = model;
       this.listenTo(this.model, 'sync', this.render);
       this.model.fetch();
     },

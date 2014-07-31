@@ -53,7 +53,12 @@ var Device = app.device = restful.model('device', mongoose.Schema({
     location: {type: 'string', enum: locations, required: true},
     os: {type: 'string', enum: os, required: true},
     version: {type: 'string', required: true},
+    isCheckedOut: {type: 'boolean', default: false},
+    checkedOutTo: {type: 'string'},
+    checkedOutOn: {type: 'Date'},
+    checkedInOn: {type: 'Date'},
     comments: [{
+      type: {type: 'string', default: 'comment'},
       body: {type: 'string'},
       author: {type: 'string'},
       date: {type: 'Date', default: Date.now}

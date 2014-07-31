@@ -8,12 +8,11 @@ define(['bus', 'backbone', 'device-model'], function (bus, Backbone, deviceModel
       return resp;
     },
     validateAndAddDevice: function (model) {
-      model.comments = [];
-      model.comments.push({
+      model.comments = [{
         author: 'system',
         date: Date.now(),
         body: 'Device Created'
-      });
+      }];
       this.create(model, {validate: true});
     }
   });
