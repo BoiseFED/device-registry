@@ -1,3 +1,90 @@
+*, *:before, *:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+}
+
+.container {
+	width: 100%;
+	border-collapse: collapse;
+	position: relative;
+	margin: auto;
+	background-color: white;
+	border-top: 20px solid #333a38;
+	
+	.header{
+		width: 100%;
+		margin: 0 auto;
+		padding: 1% 0 3%;
+
+		small {
+			margin-right: 5%;
+		}
+
+		.green-circle {
+			border-radius: 50%;
+			width: 28px;
+			height: 28px; 
+			background-color: #299883;
+			display: inline-block;
+			vertical-align: -2px;
+			text-align: center;
+			color: #fff;
+			font-size: 26px;
+			padding-top: 4px;
+			&.minus {
+				padding-top: 0;
+				vertical-align: 2px;
+			}
+		}
+
+		.menu {
+		  position: relative;
+		  padding-left: 1.25em;
+		}
+		.menu:before {
+		 content: "";
+		position: absolute;
+		top: 8px;
+		left: 6px;
+		width: 15px;
+		height: 12px;
+		border-top: 7px double #fff;
+		border-bottom: 2px solid #fff;
+		}
+
+		nav {
+			padding: 0 5%;
+		}
+	}
+
+	.sort {
+		.circle {
+			margin-right: 5px;
+			border-radius: 50%;
+			width: 28px;
+			height: 28px; 
+			background-color: #299883;
+			display: inline-block;
+			vertical-align: -6px;
+			text-align: center;
+			color: #fff;
+			font-size: 22px;
+			padding-top: 4px;
+		}
+
+	}
+
+	.form {
+		background-color: #333a38;		
+	}
+
+}
+
 .hidden {
   display: none;
 }
@@ -9,4 +96,28 @@
 .new-device {
   height: 200px;
   width: 300px;
+}
+
+//Typography
+h1,
+.js-toggle.button,
+.sort {
+	text-transform: uppercase;
+	font-size: 20px;
+	line-height: 20px;
+	display: inline-block;
+	font-weight: normal;
+
+	.logo {
+		vertical-align: -60%;
+		margin-right: 10px;
+	}
+}
+
+h1 {
+	margin-right: 15%;
+}
+
+//Footer
+.footer {
 }
