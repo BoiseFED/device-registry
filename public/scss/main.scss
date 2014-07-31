@@ -1,3 +1,5 @@
+@import 'varibles';
+
 *, *:before, *:after {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -15,7 +17,7 @@ body {
 	margin: auto;
 	background-color: white;
 	border-top: 20px solid #333a38;
-	
+
 	.header{
 		width: 100%;
 		margin: 0 auto;
@@ -28,8 +30,8 @@ body {
 		.green-circle {
 			border-radius: 50%;
 			width: 28px;
-			height: 28px; 
-			background-color: #299883;
+			height: 28px;
+			background-color: $green;
 			display: inline-block;
 			vertical-align: -2px;
 			text-align: center;
@@ -67,8 +69,8 @@ body {
 			margin-right: 5px;
 			border-radius: 50%;
 			width: 28px;
-			height: 28px; 
-			background-color: #299883;
+			height: 28px;
+			background-color: $green;
 			display: inline-block;
 			vertical-align: -6px;
 			text-align: center;
@@ -80,7 +82,7 @@ body {
 	}
 
 	.form {
-		background-color: #333a38;		
+		background-color: #333a38;
 	}
 
 }
@@ -118,6 +120,47 @@ h1 {
 	margin-right: 15%;
 }
 
+h3 {
+  font-size: 18px;
+  margin:5px 0;
+}
+
+h4 {
+  font-size:14px;
+  margin:5px 0;
+}
+
+//Device Grid
+
+.devices-container {
+  width:960px;
+  margin: 0 auto;
+
+}
+
+.device {
+    background:$lightgrey;
+    border:1px #d4d4d4 solid;
+    float:left;
+    width:32.3%;
+    height:309px;
+    text-align:center;
+    margin: 0 1.35% 1.35% 0;
+    overflow:hidden;
+
+    &:nth-child(0n+3) {
+      margin-right:0;
+    }
+
+    .image {
+      margin:30px 0 0;
+    }
+
+
+}
+
+
 //Footer
 .footer {
+  clear: both;
 }
