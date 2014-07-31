@@ -5,10 +5,7 @@
     "iOS",
     "Misc",
     "OSX",
-    "Windows",
-    "Windows 7",
-    "Windows 8",
-    "Windows XP"
+    "Windows"
   ],
   "message": "os {VALUE} not found"
 }
