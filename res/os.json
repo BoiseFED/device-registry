@@ -1,8 +1,14 @@
 {
   "values": [
-    "andorid",
-    "ios",
-    "palm"
+    "Andorid",
+    "Blackberry",
+    "iOS",
+    "Misc",
+    "OSX",
+    "Windows",
+    "Windows 7",
+    "Windows 8",
+    "Windows XP"
   ],
   "message": "os {VALUE} not found"
 }
