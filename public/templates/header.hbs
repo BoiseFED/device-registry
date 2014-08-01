@@ -9,28 +9,25 @@
     <form>
       <table>
         <tr>
-          <td class="first"><label>NAME</label></td>
+          <td><label>NAME</label></td>
           <td><input type='text' name='name' class='js-name'/></td>
-          <td class="first"><label>IMAGE URL</label></td>
-          <td class="second"><input type='text' name='url' class='js-image-url'/></td>
-          <td rowspan="4" class="save"><input type="submit" value="SAVE"/></td>
+          <td class="first"><label>SERIAL N0.</label></td>
+          <td><input type='text' name='serial' class='js-serial-no'/></td>
         </tr>
         <tr>
           <td><label>LOCATION</label></td>
           <td class='js-location-container'></td>
-          <td class="first"><label>- OR -</label></td>
+          <td class="first"><label>FORM FACTOR</label></td>
+          <td><select><option>1</option><option>2</option><<option>3</option>/select></td>
         </tr>
         <tr>
           <td><label>OS</label></td>
           <td class='js-os-container'></td>
-          <td rowspan="2" class="first"><label>SELECT A DEVICE</label></td>
-          <td rowspan="3"><input type="radio" name="device" value="ANDRIOD" /> <label>ANDRIOID</label><br />
-          <input type="radio" name="device" value="iOS" /> <label>iOS</label><br />
-          <input type="radio" name="device" value="WINDOWS" /> <label>WINDOWS</label></td>
         </tr>
         <tr>
           <td><label>VERSION</label></td>
           <td><input type='text' name='version' class='js-version'/></td>
+          <td class="save"><input type="submit" value="SAVE"/></td>
         </tr>
       </table>
     </form>

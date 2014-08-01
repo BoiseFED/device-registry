@@ -65,7 +65,6 @@ h2 {
 
 			&.sort {
 				margin-right:0;
-				margin-left: 22px;
 			}
 		}
 
@@ -133,24 +132,20 @@ h2 {
 
 
 		table {
-			width: 70%;
+			width: 100%;
 		}
 
 		label {
 			color: $white;
 		}
 
-		td, input[type="radio"] {
-			padding: 0 10px 8px 0;
+		td {
+			padding-bottom: 10px;
+		}
 
-			&.first {
-				width: 12%;
-				vertical-align: top;
-			}
-
-			&.second {
-				width: 20%;
-			}
+		td:first-child,
+		.first {
+			width: 12%;
 		}
 
 		input[type="submit"]{
@@ -162,9 +157,11 @@ h2 {
 		}
 
 		select {
+			width: 40%;
 		}
 
 		input[type="text"] {
+			margin-right: 100px;
 		}
 
 		.save {
