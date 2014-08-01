@@ -1,6 +1,4 @@
 ## ToDo
-- [ ] BB: Sort by name, serial
-- [ ] BB: Filter by os, formfactor, location
 - [ ] BB: Create Global Error View listening on bus
 - [ ] DOC: How to create local mongodo instance
 - [ ] DOC: How to create config.json
@@ -12,7 +10,7 @@
 - [ ] UI: Checkout Device
 - [ ] UI: Checkin Device
 - [ ] UI: Edit Device
-- 
+-
 ## Done
 - [X] GRUNT: jshint js files
 - [X] GRUNT: JSONLint json files
@@ -23,3 +21,5 @@
 - [X] CONFIG: Move Mongo server value into config.json
 - [X] STYLE: Use a pre-parser
 - [X] TEST: Adding Device with starting comment
+- [X] BB: Sort by name, serial
+- [X] BB: Filter by os, formfactor, location
