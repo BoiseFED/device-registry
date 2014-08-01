@@ -169,6 +169,42 @@ define([
           expect(comments[0].author).to.equal('system');
           expect(comments[0].body).to.equal('Device Created');
         });
+
+        it('should add filters to the url', function () {
+          this.collection.filterBy({
+            location: 'Boise',
+            os: 'Android'
+          });
+          var url = this.collection.url();
+          expect(url)
+            .to.equal('/api/devices?select=-comments&location=Boise&os=Android');
+        });
+
+        it('should clear filters', function () {
+          this.collection.filterBy({
+            location: 'Boise',
+            os: 'Android'
+          });
+          this.collection.clearFilter();
+          var url = this.collection.url();
+          expect(url)
+            .to.equal('/api/devices?select=-comments');
+        });
+
+        it('should add sort to the url', function () {
+          this.collection.sortBy('location');
+          var url = this.collection.url();
+          expect(url)
+            .to.equal('/api/devices?select=-comments&sort=location');
+        });
+
+        it('should clear sort', function () {
+          this.collection.sortBy('location');
+          this.collection.clearSort();
+          var url = this.collection.url();
+          expect(url)
+            .to.equal('/api/devices?select=-comments');
+        });
       });
     });
   });
