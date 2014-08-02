@@ -40,6 +40,11 @@ var os = {
   message: resources.os.message
 };
 
+var formfactors = {
+  values: resources.formfactors.values,
+  message: resources.formfactors.message
+};
+
 app.get('/resources/:resource', function (req, res) {
   if (resources[req.params.resource]) {
     res.json(resources[req.params.resource]);
@@ -52,7 +57,9 @@ var Device = app.device = restful.model('device', mongoose.Schema({
     name: {type: 'string'},
     location: {type: 'string', enum: locations, required: true},
     os: {type: 'string', enum: os, required: true},
+    formfactor: {type: 'string', enum: formfactors, required: true},
     version: {type: 'string', required: true},
+    serial: {type: 'string', required: true, unique: true},
     isCheckedOut: {type: 'boolean', default: false},
     checkedOutTo: {type: 'string'},
     checkedOutOn: {type: 'Date'},

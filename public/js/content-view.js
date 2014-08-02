@@ -6,7 +6,6 @@ function (Backbone, Handlebars, tmpl) {
   return Backbone.View.extend({
     el: '.content',
     initialize: function () {
-      this.listenTo(this.model, 'all', function () {console.log(arguments); });
       this.listenTo(this.model, 'request', function () {
         this.renderLoading();
       });

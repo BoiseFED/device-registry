@@ -6,7 +6,9 @@ requirejs.config({
     jquery: '../vendor/jquery/dist/jquery.min',
     text: '../vendor/requirejs-text/text',
     json: '../vendor/requirejs-plugins/src/json',
-    underscore: '../vendor/underscore/underscore',
+    underscore: 'lib/underscore',
+    'underscore.lib': '../vendor/underscore/underscore',
+    'underscore.string': '../vendor/underscore.string/dist/underscore.string.min',
     chai: '../../node_modules/chai/chai',
     sinon: '../vendor/sinonjs/sinon',
     sinonChai: '../../node_modules/sinon-chai/lib/sinon-chai',
@@ -23,6 +25,9 @@ requirejs.config({
     },
     'sinonFakeServer': {
       deps: ['sinon']
+    },
+    'underscore.lib': {
+      exports: '_'
     }
   }
 });
