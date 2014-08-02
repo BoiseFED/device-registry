@@ -1,28 +1,17 @@
 <div class="devices-container">
   {{#each .}}
-  <div class="device">
-
-<div class="image"><img src="images/fpo-device.png"/></div>
-      <div class="device-info">
-        <h3 class="title">{{name}}</h3>
-        <h4 class="os">{{os}} {{version}}</h4>
-
-      <div class="extra-info">
-        <h4 class="location">{{location}}</h4>
-        <div class="comments">
-          <h4>Comments</h4>
-            {{#each comments}}
-              <div class="comment">
-                <span class="author">{{author}}</span>
-                <span class="date">{{date}}</span>
-                <span class="comment-body">{{body}}</span>
-              </div>
-            {{/each}}
+    <div class="device">
+      <div class="image"><img src="images/fpo-device.png"/></div>
+        <div class="device-info">
+          <h3 class="title">{{name}}</h3>
+          <h4 class="os">{{os}} {{version}}</h4>
+          <div class="extra-info">
+            <h4 class="location">{{location}}</h4>
+            <h4 class="formfactor">{{formfactor}}</h4>
+            <h4 class="serial">{{serial}}</h4>
+            <h4 class="checkedin">{{#if isCheckedOut}}Checked out to {{checkedOutTo}}{{else}}Checked in{{/if}}</h4>
+          </div>
         </div>
-      </div>
-
-      </div>
     </div>
-
   {{/each}}
-  </div>
+</div>

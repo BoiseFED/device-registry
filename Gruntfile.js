@@ -99,7 +99,7 @@ module.exports = function (grunt) {
         files: ['public/**/*.html', 'public/**/*.hbs']
       },
       server: {
-        files: ['server.js']
+        files: ['server.js', 'res/*.js']
       }
     }
   });

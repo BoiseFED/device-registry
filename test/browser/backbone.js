@@ -113,7 +113,7 @@ define([
 
           it('should not move the device with a bad location', function () {
             this.model.move('chicago');
-            expect(this.model.get('location')).to.equal('boise');
+            expect(this.model.get('location')).to.equal('Boise');
             expect(this.triggerSpy.args[0][0]).to.equal('invalid');
             expect(this.triggerSpy.args[0][2])
               .to.equal('You can\'t move this device. chicago not valid');
@@ -122,9 +122,9 @@ define([
           it('should not move a device already at that location', function () {
             this.locationStub = sinon.stub(locationModel, 'contains');
             this.locationStub.returns(true);
-            this.model.move('boise');
+            this.model.move('Boise');
             this.locationStub.restore();
-            expect(this.model.get('location')).to.equal('boise');
+            expect(this.model.get('location')).to.equal('Boise');
             expect(this.triggerSpy.args[0][0]).to.equal('invalid');
             expect(this.triggerSpy.args[0][2])
               .to.equal('You can\'t move this device. It\'s already at this location.');
@@ -139,7 +139,7 @@ define([
 
           it('should not rename with an empty string', function () {
             this.model.rename('');
-            expect(this.model.get('location')).to.equal('boise');
+            expect(this.model.get('location')).to.equal('Boise');
             expect(this.triggerSpy.args[0][0]).to.equal('invalid');
             expect(this.triggerSpy.args[0][2])
               .to.equal('The name you\'ve provided is invalid.');
@@ -147,10 +147,26 @@ define([
 
           it('should not rename with a non string', function () {
             this.model.rename({});
-            expect(this.model.get('location')).to.equal('boise');
+            expect(this.model.get('location')).to.equal('Boise');
             expect(this.triggerSpy.args[0][0]).to.equal('invalid');
             expect(this.triggerSpy.args[0][2])
               .to.equal('The name you\'ve provided is invalid.');
+          });
+        });
+
+        describe('validation', function () {
+          it('should validate all the fields', function () {
+            var model = {},
+              valiationModel = new DeviceModel(),
+              errors = valiationModel.validate(model);
+
+            expect(errors).to.have.length(6);
+            expect(errors[0]).to.equal('Name is either empty or missing.');
+            expect(errors[1]).to.equal('Location is either empty or missing.');
+            expect(errors[2]).to.equal('Formfactor is either empty or missing.');
+            expect(errors[3]).to.equal('Serial is either empty or missing.');
+            expect(errors[4]).to.equal('Version is either empty or missing.');
+            expect(errors[5]).to.equal('Os is either empty or missing.');
           });
         });
       });

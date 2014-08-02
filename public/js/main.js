@@ -6,14 +6,16 @@ requirejs.config({
       jquery: '../vendor/jquery/dist/jquery.min',
       text: '../vendor/requirejs-text/text',
       tmpl: '../templates',
-      underscore: '../vendor/underscore/underscore'
+      underscore: 'lib/underscore',
+      'underscore.lib': '../vendor/underscore/underscore',
+      'underscore.string': '../vendor/underscore.string/dist/underscore.string.min'
     },
     shim: {
       backbone: {
         deps: ['underscore', 'jquery'],
         exports: 'Backbone'
       },
-      underscore: {
+      'underscore.lib': {
         exports: '_'
       },
       jquery: {
@@ -31,10 +33,12 @@ requirejs(
   ['header-view',
   'footer-view',
   'content-view',
+  'error-view',
   'device-collection'],
-  function (HeaderView, FooterView, ContentView, DeviceCollection) {
+  function (HeaderView, FooterView, ContentView, ErrorView, DeviceCollection) {
   var deviceCollection = new DeviceCollection(),
     headerView = new HeaderView({collection: deviceCollection}),
+    errorView = new ErrorView(),
     footerView = new FooterView(),
     contentView = new ContentView({model: deviceCollection});
 

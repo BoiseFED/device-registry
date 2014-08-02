@@ -1,10 +1,12 @@
 {
   "name": "Asus Nexus 7",
-  "location": "boise",
-  "os": "ios",
+  "location": "Boise",
+  "os": "iOS",
   "version": "7",
   "imageUrl": "http://www.gambarphoto.com/wp-content/uploads/2014/05/android-phone-pngwelcome-to-eltm-online-zct9i3dw.png",
   "isCheckedOut": true,
   "checkedOnOn": 1406787720458,
-  "checkedOutTo": "aclark"
+  "checkedOutTo": "aclark",
+  "serial": "86414ef3",
+  "formfactor": "Phone"
 }

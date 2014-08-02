@@ -28,7 +28,12 @@ define(['underscore', 'bus', 'backbone', 'device-model'], function (_, bus, Back
         date: Date.now(),
         body: 'Device Created'
       }];
-      this.create(model, {validate: true});
+      var validationModel = new this.model(),
+        errors = validationModel.validate(model);
+      if (errors) {
+        return errors;
+      }
+      this.create(model, {validate: false});
     },
     filterBy: function (filters) {
       this.filters = filters;
