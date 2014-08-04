@@ -130,6 +130,16 @@ h2 {
 		padding: 20px 0;
 		border: 3px #bdc0bf solid;
 		border-width:3px 0 3px 0;
+		height:245px;
+
+		&.hidden {
+			height:0;
+			padding:0;
+			display:block;
+			overflow:hidden;
+			border: none;
+
+		}
 
 
 		table {
