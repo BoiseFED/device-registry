@@ -92,14 +92,14 @@ module.exports = function (grunt) {
         tasks: ['jsonlint:resources']
       },
       scss: {
-        files: ['public/scss/main.scss'],
+        files: ['public/scss/*.scss'],
         tasks: ['sass:build']
       },
       html: {
         files: ['public/**/*.html', 'public/**/*.hbs']
       },
       server: {
-        files: ['server.js']
+        files: ['server.js', 'res/*.js']
       }
     }
   });

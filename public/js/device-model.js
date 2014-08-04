@@ -1,10 +1,16 @@
 define(['backbone', 'underscore', 'location-model'], function (Backbone, _, locationModel) {
   return Backbone.Model.extend({
     url: '/api/devices',
-    validate: function () {
-      var hasError = false;
+    fields: ['name', 'location', 'formfactor', 'serial', 'version', 'os'],
+    validate: function (model) {
+      var errors = _.reduce(this.fields, function (errors, field) {
+        this._validateEmptyAndUndefined(errors, model, field);
+        return errors;
+      }, [], this);
 
-      return hasError;
+      if (errors.length > 0) {
+        return errors;
+      }
     },
     checkout: function (owner) {
       if (!_.isString(owner) || _.isEmpty(owner)) {
@@ -79,6 +85,12 @@ define(['backbone', 'underscore', 'location-model'], function (Backbone, _, loca
     },
     isCheckedOut: function () {
       return this.get('isCheckedOut');
+    },
+    _validateEmptyAndUndefined: function (errors, model, fieldName) {
+      var field = model[fieldName];
+      if (_.isUndefined(field) || _.isEmpty(field)) {
+        errors.push(_.capitalize(fieldName) + ' is either empty or missing.');
+      }
     },
     _systemComment: function (type, comment) {
       var comments = this.get('comments');

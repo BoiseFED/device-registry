@@ -1,0 +1,85 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot?-o8kd3o');
+	src:url('../fonts/icomoon.eot?#iefix-o8kd3o') format('embedded-opentype'),
+		url('../fonts/icomoon.woff?-o8kd3o') format('woff'),
+		url('../fonts/icomoon.ttf?-o8kd3o') format('truetype'),
+		url('../fonts/icomoon.svg?-o8kd3o#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-poo:before {
+	content: "\e600";
+}
+.icon-screen:before {
+	content: "\e601";
+}
+.icon-laptop:before {
+	content: "\e602";
+}
+.icon-mobile:before {
+	content: "\e603";
+}
+.icon-tablet:before {
+	content: "\e604";
+}
+.icon-spinner:before {
+	content: "\e605";
+}
+.icon-fire:before {
+	content: "\e606";
+}
+.icon-truck:before {
+	content: "\e607";
+}
+.icon-menu:before {
+	content: "\e608";
+}
+.icon-warning:before {
+	content: "\e609";
+}
+.icon-notification:before {
+	content: "\e60a";
+}
+.icon-check-in:before {
+	content: "\e60b";
+}
+.icon-check-out:before {
+	content: "\e60c";
+}
+.icon-filter:before {
+	content: "\e60d";
+}
+.icon-grid:before {
+	content: "\e60e";
+}
+.icon-list:before {
+	content: "\e60f";
+}
+.icon-github:before {
+	content: "\e610";
+}
+.icon-apple:before {
+	content: "\e611";
+}
+.icon-android:before {
+	content: "\e612";
+}
+.icon-windows:before {
+	content: "\e613";
+}

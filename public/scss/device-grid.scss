@@ -3,6 +3,7 @@ $gutter:1.7%;
  .devices-container {
   width: 960px;
   margin: 0 auto;
+  padding-top: 3%;
   @extend .clearfix;
   &.grid {
     .device {

@@ -5,8 +5,9 @@ define(
   'handlebars',
   'text!tmpl/header.hbs',
   'locations-view',
-  'os-view'],
-function (bus, _, Backbone, Handlebars, headerTmpl, LocationsView, OSView) {
+  'os-view',
+  'formfactor-view'],
+function (bus, _, Backbone, Handlebars, headerTmpl, LocationsView, OSView, FormFactorView) {
   return Backbone.View.extend({
     el: '.header',
     events: {
@@ -18,27 +19,36 @@ function (bus, _, Backbone, Handlebars, headerTmpl, LocationsView, OSView) {
       this.default = {isFormHidden: true};
       this.locationsView = new LocationsView();
       this.osView = new OSView();
+      this.formFactorView = new FormFactorView();
       this.render();
     },
     render: function () {
       this.$el.html(Handlebars.compile(headerTmpl)(this.default));
       this.$('.js-location-container').html(this.locationsView.$el);
       this.$('.js-os-container').html(this.osView.$el);
+      this.$('.js-formfactor-container').html(this.formFactorView.$el);
     },
     toggleForm: function (hideForm) {
       this.default.isFormHidden = _.isBoolean(hideForm) ? hideForm : !this.default.isFormHidden;
       this.render();
     },
     addDevice: function (ev) {
-      var formObj = this._getFormData(this.$('form'));
+      ev.preventDefault();
+      var formObj = this._getFormData(this.$('form')),
+        errors;
 
-      try {
-        this.collection.validateAndAddDevice(formObj);
-      } catch (ex) {
-        this.showError('Error:' + ex.message);
-        return false;
+      errors = this.collection.validateAndAddDevice(formObj);
+      bus.trigger('error', errors);
+
+      if (!errors) {
+        this.resetForm();
+        this.toggleForm(true);
       }
+
       return false;
+    },
+    resetForm: function () {
+      this.$('form')[0].reset();
     },
     _getFormData: function ($form) {
       try {
@@ -53,9 +63,6 @@ function (bus, _, Backbone, Handlebars, headerTmpl, LocationsView, OSView) {
       } catch (ex) {
         console.log(ex);
       }
-    },
-    showError: function (error, device) {
-      console.log(error);
     }
   });
 });
