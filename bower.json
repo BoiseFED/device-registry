@@ -25,6 +25,8 @@
     "requirejs-plugins": "~1.0.2",
     "sinon": "~1.10.3",
     "sinonjs": "~1.10.2",
-    "underscore.string": "~2.3.3"
+    "underscore.string": "~2.3.3",
+    "swag": "~0.7.0",
+    "backbone.keyboard": "~0.1.0"
   }
 }

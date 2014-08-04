@@ -2,11 +2,15 @@ define([
   'device-collection',
   'device-model',
   'location-model',
+  'filter-model',
+  'filter-view',
   'json!fixtures/device.json'
 ], function (
   DeviceCollection,
   DeviceModel,
   locationModel,
+  filterModel,
+  FilterView,
   device
 ) {
   describe('backbone', function () {
@@ -104,11 +108,8 @@ define([
 
         describe('location', function () {
           it('should move the device to a new location', function () {
-            this.locationStub = sinon.stub(locationModel, 'contains');
-            this.locationStub.returns(true);
-            this.model.move('chicago');
-            this.locationStub.restore();
-            expect(this.model.get('location')).to.equal('chicago');
+            this.model.move('Chicago');
+            expect(this.model.get('location')).to.equal('Chicago');
           });
 
           it('should not move the device with a bad location', function () {
@@ -120,10 +121,7 @@ define([
           });
 
           it('should not move a device already at that location', function () {
-            this.locationStub = sinon.stub(locationModel, 'contains');
-            this.locationStub.returns(true);
             this.model.move('Boise');
-            this.locationStub.restore();
             expect(this.model.get('location')).to.equal('Boise');
             expect(this.triggerSpy.args[0][0]).to.equal('invalid');
             expect(this.triggerSpy.args[0][2])
@@ -170,8 +168,66 @@ define([
           });
         });
       });
+      describe('filter', function () {
+        beforeEach(function () {
+          filterModel.filters = {
+            location: ['Boise', 'Chicago', 'NewYork'],
+            formfactor: ['Phone', 'Tablet', 'Laptop'],
+            version: ['{userinput}'],
+            checkedIn: ['true', 'false']
+          };
+        });
+        it('should filter with mutliple filters', function () {
+          var result = filterModel.filter('location:Boise formfactor:');
+          expect(result).to.be.array;
+          expect(result).to.have.length(3);
+          expect(result[0]).to.equal('Phone');
+        });
+        it('should return all fields on empty', function () {
+          var result = filterModel.filter('');
+          expect(result).to.be.array;
+          expect(result).to.have.length(4);
+          expect(result[0]).to.equal('location');
+        });
+        it('should return all fields on empty', function () {
+          var result = filterModel.filter('x');
+          expect(result).to.be.array;
+          expect(result).to.have.length(4);
+          expect(result[0]).to.equal('location');
+        });
+        it('should return location when loc is typed', function () {
+          var result = filterModel.filter('loc');
+          expect(result).to.be.array;
+          expect(result).to.have.length(1);
+          expect(result[0]).to.equal('location');
+        });
+        it('should return all values when : is typed', function () {
+          var result = filterModel.filter('location:');
+          expect(result).to.be.array;
+          expect(result).to.have.length(3);
+          expect(result[0]).to.equal('Boise');
+        });
+        it('should return all values when no match is found', function () {
+          var result = filterModel.filter('location:Texas');
+          expect(result).to.be.array;
+          expect(result).to.have.length(3);
+          expect(result[0]).to.equal('Boise');
+        });
+        it('should prompt for string when empty array is found', function () {
+          var result = filterModel.filter('version:');
+          expect(result).to.be.array;
+          expect(result).to.have.length(1);
+          expect(result[0]).to.equal('{userinput}');
+        });
+      });
     });
-    describe('views', function () {});
+    describe('views', function () {
+      describe('filter', function () {
+        beforeEach(function () {
+          this.filterView = new FilterView();
+        });
+      });
+    });
     describe('collections', function () {
       describe('device', function () {
         beforeEach(function () {
@@ -193,7 +249,7 @@ define([
           });
           var url = this.collection.url();
           expect(url)
-            .to.equal('/api/devices?select=-comments&location=Boise&os=Android');
+            .to.equal('/api/devices?select=-comments&location__nocase=Boise&os__nocase=Android');
         });
 
         it('should clear filters', function () {
