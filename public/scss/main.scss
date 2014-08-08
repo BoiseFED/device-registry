@@ -1,5 +1,14 @@
+// Colors
+$green:#299883;
+$black:#333a38;
+$white:#fff;
+$blue: #3967ce;
+$red: #ce3939;
+$gray: #f2f2f2;
+
 @import 'varibles';
 @import 'fonts';
+@import 'check-device';
 
 *, *:before, *:after {
 	-moz-box-sizing: border-box;
@@ -8,11 +17,6 @@
 }
 
 $font-stack: Futura, "Trebuchet MS", Arial, sans-serif;
-
-// Colors
-$green:#299883;
-$black:#333a38;
-$white:#fff;
 
 
 body {
@@ -58,11 +62,11 @@ h2 {
 		padding: 1% 0 0;
 
 		h1 {
-			margin-right: 18%;
+			margin-right: 20%;
 		}
 
 		small {
-			margin: 0 70px 20px 0;
+			margin: 0 135px 20px 0;
 
 			&.sort {
 				margin-right:0;
@@ -102,6 +106,16 @@ h2 {
 		padding: 20px 0;
 		border: 3px #bdc0bf solid;
 		border-width:3px 0 3px 0;
+		height:245px;
+
+		&.hidden {
+			height:0;
+			padding:0;
+			display:block;
+			overflow:hidden;
+			border: none;
+
+		}
 
 
 		table {
@@ -222,7 +236,12 @@ h3 {
 
 h4 {
   font-size:14px;
-  margin:5px 0;
+  margin:0;
+}
+
+h5 {
+	font-size: 30px;
+	margin: 5px 0;
 }
 
 

@@ -1,0 +1,81 @@
+.checkin {
+
+	> div {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	div:first-child {
+		margin-right: 50px;
+	}
+
+	.device-info {
+		p {
+			margin: 5px 0;
+		}
+	}
+
+	.device-actions {
+		width: 260px;
+		margin: 20px 0 80px;
+		a {
+			display: block;
+			color: $white;
+			font-size: 25px;
+			padding: 10px;
+			text-decoration: none;
+			margin: 8px 0;
+			&:hover {
+				background: $black !important;
+			}
+
+			&.check-in {
+				background-color: $green;
+				&:before {
+					margin-right: 10px;
+					font-size: 20px;
+				}
+			}
+
+			&.check-out {
+				background-color: $blue;
+				&:before {
+					margin-right: 10px;
+					font-size: 20px;
+				}
+			}
+
+			&.device-error {
+				background-color: $red;
+				&:before {
+					margin-right: 10px;
+					font-size: 20px;
+				}
+			}
+		}
+	}
+
+	.comments {
+		width: 100%;
+		display: block;
+		background-color: $gray;
+		h2 {
+			background-color: $black;
+			padding: 5px 10px;
+			margin: 0;
+		}
+
+		section {
+			padding: 10px;
+			.checked-in {
+				color: $green;
+			}
+			.checked-out {
+				color: $blue;
+			}
+			.updated {
+				color: $red;
+			}
+		}
+	}
+}
