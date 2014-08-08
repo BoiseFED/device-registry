@@ -1,0 +1,132 @@
+[
+  {
+    "_id": {
+      "$oid": "53e4456baf312d00a22223ad"
+    },
+    "name": "Nexus 7",
+    "serial": "86414ef3",
+    "location": "Boise",
+    "formfactor": "Tablet",
+    "os": "Android",
+    "version": "4.4",
+    "comments": [
+      {
+        "author": "system",
+        "body": "Device Created",
+        "_id": {
+          "$oid": "53e4456baf312d00a22223ae"
+        },
+        "date": {
+          "$date": "2014-08-07T21:35:07.328-0600"
+        },
+        "type": "comment"
+      }
+    ],
+    "isCheckedOut": false,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "53e4458eaf312d00a22223af"
+    },
+    "name": "Nexus 5",
+    "serial": "1908827",
+    "location": "Chicago",
+    "formfactor": "Phone",
+    "os": "Android",
+    "version": "4.2",
+    "comments": [
+      {
+        "author": "system",
+        "body": "Device Created",
+        "_id": {
+          "$oid": "53e4458eaf312d00a22223b0"
+        },
+        "date": {
+          "$date": "2014-08-07T21:35:42.326-0600"
+        },
+        "type": "comment"
+      }
+    ],
+    "isCheckedOut": false,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "53e445a1af312d00a22223b1"
+    },
+    "name": "iPhone 3s",
+    "serial": "492817",
+    "location": "Irvine",
+    "formfactor": "Phone",
+    "os": "iOS",
+    "version": "3",
+    "comments": [
+      {
+        "author": "system",
+        "body": "Device Created",
+        "_id": {
+          "$oid": "53e445a1af312d00a22223b2"
+        },
+        "date": {
+          "$date": "2014-08-07T21:36:01.420-0600"
+        },
+        "type": "comment"
+      }
+    ],
+    "isCheckedOut": false,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "53e445baaf312d00a22223b3"
+    },
+    "name": "iPad Mini 2",
+    "serial": "5638272",
+    "location": "New York",
+    "formfactor": "Tablet",
+    "os": "iOS",
+    "version": "5",
+    "comments": [
+      {
+        "author": "system",
+        "body": "Device Created",
+        "_id": {
+          "$oid": "53e445baaf312d00a22223b4"
+        },
+        "date": {
+          "$date": "2014-08-07T21:36:26.413-0600"
+        },
+        "type": "comment"
+      }
+    ],
+    "isCheckedOut": false,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "53e445e4af312d00a22223b5"
+    },
+    "name": "IBM Thinkpad",
+    "serial": "32902839",
+    "location": "Irvine",
+    "formfactor": "Laptop",
+    "os": "Windows",
+    "version": "8",
+    "comments": [
+      {
+        "author": "system",
+        "body": "Device Created",
+        "_id": {
+          "$oid": "53e445e4af312d00a22223b6"
+        },
+        "date": {
+          "$date": "2014-08-07T21:37:08.639-0600"
+        },
+        "type": "comment"
+      }
+    ],
+    "isCheckedOut": false,
+    "__v": 0
+  }
+]

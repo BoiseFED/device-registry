@@ -7,6 +7,7 @@ define([
   Backbone,
   formfactors
 ) {
+  formfactors.name = 'formfactor';
   var model = new Backbone.Model(formfactors);
   return model;
 });

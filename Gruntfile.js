@@ -13,7 +13,7 @@ module.exports = function (grunt) {
     // Task configuration.
     'path-check': {
       'developer-tools': {
-        src: ['sass', 'convert']
+        src: ['sass', 'jq']
       }
     },
     checkDependencies: {
@@ -73,7 +73,12 @@ module.exports = function (grunt) {
     exec: {
       run: 'node server.js',
       node_test: 'npm run test-node',
-      browser_test: 'npm run test-browser'
+      browser_test: 'npm run test-browser',
+      export_mongo: 'mongoexport --db ag_devicedb --collection devices ' +
+        ' --jsonArray | jq "." >> data/dummy.json',
+      import_mongo: 'mongoimport --db ag_devicedb --collection devices ' +
+        '--drop --type json --jsonArray --file data/dummy.json',
+      empty_mongo: 'mongo ag_devicedb --eval "db.devices.drop()"'
     },
     watch: {
       options: {
@@ -126,6 +131,9 @@ module.exports = function (grunt) {
     'exec:node_test',
     'exec:browser_test'
   ]);
+  grunt.registerTask('backup-db', ['exec:export_mongo']);
+  grunt.registerTask('restore-db', ['exec:import_mongo']);
+  grunt.registerTask('empty-db', ['exec:empty_mongo']);
   grunt.registerTask('dev', ['check', 'concurrent:dev']);
   grunt.registerTask('default', ['dev']);
 };
