@@ -7,6 +7,7 @@ define([
   Backbone,
   locations
 ) {
+  locations.name = 'location';
   var Model = Backbone.Model.extend({
     contains: function (location) {
       return _.contains(this.get('values'), location);

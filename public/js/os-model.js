@@ -7,6 +7,7 @@ define([
   Backbone,
   os
 ) {
+  os.name = 'os';
   var model = new Backbone.Model(os);
   return model;
 });
