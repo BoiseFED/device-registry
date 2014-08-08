@@ -58,5 +58,4 @@ requirejs(
     filterView = new FilterView({model: deviceCollection}),
     contentView = new ContentView({model: deviceCollection});
   deviceCollection.fetch();
-  this.filterView.$el.hide();
 });

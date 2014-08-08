@@ -3,7 +3,7 @@ $gutter:1.7%;
  .devices-container {
   width: 960px;
   margin: 0 auto;
-  padding-top: 3%;
+  padding-top: 0;
   @extend .clearfix;
   &.grid {
     .device {
@@ -87,9 +87,17 @@ $gutter:1.7%;
         float:left;
         margin-right:40px;
       }
+    }
+  }
 
-
-
+  .filters {
+    ul {
+      list-style-type: none;
+      li {
+        display: inline;
+        border: solid 1px $slate;
+        padding:5px 2px;
+      }
     }
   }
 }

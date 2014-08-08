@@ -40,11 +40,12 @@ function (
       this.$('.js-formfactor-container').html(this.formFactorView.$el);
     },
     toggleForm: function (hideForm) {
-      this.default.isFormHidden = _.isBoolean(hideForm) ? hideForm : !this.default.isFormHidden;
-      this.render();
+      $('.filter').addClass('hidden');
+      this.$('.form').toggleClass('hidden');
     },
     toggleFilter: function () {
-      $('.filter').toggle();
+      this.$('.form').addClass('hidden');
+      $('.filter').toggleClass('hidden');
     },
     addDevice: function (ev) {
       ev.preventDefault();
