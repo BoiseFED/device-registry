@@ -101,7 +101,7 @@ h2 {
 		}
 	}
 
-	.form, .filter {
+	.form {
 		background-color: $black;
 		padding: 20px 0;
 		border: 3px #bdc0bf solid;
@@ -156,41 +156,6 @@ h2 {
 		}
 	}
 
-	.filter {
-
-		td:first-child,
-		.first {
-			width:90%;
-
-			.filter-input {
-				width: 700px;
-				height: 40px;
-				padding: 10px;
-			}
-		}
-
-		.suggestions {
-			position: absolute;
-			z-index: 10;
-			margin-top: 5px;
-			background: $lightgrey;
-			width: 700px;
-			color: $slate;
-			border: solid 1px $slate;
-			border-bottom: none;
-
-			.active {
-				background: $green	;
-				color: $white;
-			}
-
-			.suggestion {
-				padding: 10px;
-				border-bottom: solid 1px $slate;
-			}
-		}
-	}
-
 }
 
 .hidden {
@@ -213,8 +178,7 @@ h2 {
 
 //Typography
 h1,
-.js-toggleform.button,
-.js-togglefilter.button
+.js-toggle.button,
 .sort {
 	text-transform: uppercase;
 	font-size: 20px;

@@ -7,7 +7,8 @@ define(
   return Backbone.View.extend({
     initialize: function () {
       this.model = model;
-      this.render();
+      this.listenTo(this.model, 'sync', this.render);
+      this.model.fetch();
     },
     render: function () {
       var model = this.model.toJSON();

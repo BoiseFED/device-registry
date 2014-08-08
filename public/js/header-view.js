@@ -1,6 +1,5 @@
 define(
   ['bus',
-  'jquery',
   'underscore',
   'backbone',
   'handlebars',
@@ -8,26 +7,16 @@ define(
   'locations-view',
   'os-view',
   'formfactor-view'],
-function (
-  bus,
-  $,
-  _,
-  Backbone,
-  Handlebars,
-  headerTmpl,
-  LocationsView,
-  OSView,
-  FormFactorView
-) {
+function (bus, _, Backbone, Handlebars, headerTmpl, LocationsView, OSView, FormFactorView) {
   return Backbone.View.extend({
     el: '.header',
     events: {
-      'click .js-toggleform': 'toggleForm',
-      'click .js-togglefilter': 'toggleFilter',
+      'click .js-toggle': 'toggleForm',
       'submit form': 'addDevice'
     },
     initialize: function (options) {
-      this.default = {isFormHidden: true, isFilterHidden: false};
+      this.collection = options.collection;
+      this.default = {isFormHidden: true};
       this.locationsView = new LocationsView();
       this.osView = new OSView();
       this.formFactorView = new FormFactorView();
@@ -43,15 +32,12 @@ function (
       this.default.isFormHidden = _.isBoolean(hideForm) ? hideForm : !this.default.isFormHidden;
       this.render();
     },
-    toggleFilter: function () {
-      $('.filter').toggle();
-    },
     addDevice: function (ev) {
       ev.preventDefault();
       var formObj = this._getFormData(this.$('form')),
         errors;
 
-      errors = this.model.validateAndAddDevice(formObj);
+      errors = this.collection.validateAndAddDevice(formObj);
       bus.trigger('error', errors);
 
       if (!errors) {

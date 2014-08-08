@@ -2,15 +2,11 @@ requirejs.config({
   baseUrl: '../../public/js/',
   paths: {
     backbone: '../vendor/backbone/backbone',
-    handlebars: 'lib/handlebars',
-    'handlebars.lib': '../vendor/handlebars/handlebars.min',
-    swag: '../vendor/swag/lib/swag',
+    handlebars: '../vendor/handlebars/handlebars.min',
     jquery: '../vendor/jquery/dist/jquery.min',
     text: '../vendor/requirejs-text/text',
     json: '../vendor/requirejs-plugins/src/json',
-    tmpl: '../templates',
     underscore: 'lib/underscore',
-    resources: '../../res',
     'underscore.lib': '../vendor/underscore/underscore',
     'underscore.string': '../vendor/underscore.string/dist/underscore.string.min',
     chai: '../../node_modules/chai/chai',
@@ -32,12 +28,6 @@ requirejs.config({
     },
     'underscore.lib': {
       exports: '_'
-    },
-    'handlebars.lib': {
-      exports: 'Handlebars'
-    },
-    swag: {
-      exports: 'Swag'
     }
   }
 });

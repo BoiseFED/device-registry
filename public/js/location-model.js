@@ -1,17 +1,5 @@
-define([
-  'underscore',
-  'backbone',
-  'json!resources/locations.json'
-], function (
-  _,
-  Backbone,
-  locations
-) {
-  var Model = Backbone.Model.extend({
-    contains: function (location) {
-      return _.contains(this.get('values'), location);
-    }
-  }),
-    model = new Model(locations);
+define(['underscore', 'res-model'], function (_, BaseModel) {
+  var model = new BaseModel({type: 'locations', name: 'location'});
+  model.fetch();
   return model;
 });

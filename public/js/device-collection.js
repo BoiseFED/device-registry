@@ -9,7 +9,7 @@ define(['underscore', 'bus', 'backbone', 'device-model'], function (_, bus, Back
         filters = [];
       if (_.isObject(this.filters)) {
         filters = _.map(this.filters, function (value, key) {
-          return key + '__nocase=' + value;
+          return key + '=' + value;
         });
         url += '&' + filters.join('&');
       }
@@ -37,23 +37,18 @@ define(['underscore', 'bus', 'backbone', 'device-model'], function (_, bus, Back
     },
     filterBy: function (filters) {
       this.filters = filters;
-      this.fetch({reset: true});
     },
     clearFilter: function () {
       this.filters = null;
-      this.fetch({reset: true});
     },
     sortBy: function (field) {
       this.sort = field;
-      this.fetch({reset: true});
     },
     clearSort: function () {
       this.sort = null;
-      this.fetch({reset: true});
     },
     toggleOrder: function () {
       this.order = (this.order === '-') ? '' : '-';
-      this.fetch({reset: true});
     }
   });
 });
