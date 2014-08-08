@@ -1,5 +1,15 @@
 <div class="devices-container grid">
-  {{#each .}}
+  {{#if filters}}
+    <div class="filters">
+      <h3>Filters <a href='#' class='js-clear-filter'>clear</a></h3>
+      <ul>
+        {{#each filters}}
+        <li>{{@key}} contains '{{.}}'</li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/if}}
+  {{#each devices}}
     <div class="device">
       <div class="image"><img src="images/fpo-device.png"/></div>
         <div class="device-info">

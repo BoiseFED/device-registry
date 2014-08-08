@@ -1,5 +1,12 @@
-define(['underscore', 'res-model'], function (_, BaseModel) {
-  var model = new BaseModel({type: 'os'});
-  model.fetch();
+define([
+  'underscore',
+  'backbone',
+  'json!resources/os.json'
+], function (
+  _,
+  Backbone,
+  os
+) {
+  var model = new Backbone.Model(os);
   return model;
 });

@@ -45,7 +45,7 @@ var formfactors = {
   message: resources.formfactors.message
 };
 
-app.get('/resources/:resource', function (req, res) {
+app.get('/res/:resource.json', function (req, res) {
   if (resources[req.params.resource]) {
     res.json(resources[req.params.resource]);
   } else {

@@ -1,17 +1,28 @@
 requirejs.config({
     baseUrl: 'js',
     paths: {
-      backbone: '../vendor/backbone/backbone',
-      handlebars: '../vendor/handlebars/handlebars.min',
+      backbone: 'lib/backbone',
+      'backbone.lib': '../vendor/backbone/backbone',
+      'backbone.keyboard': '../vendor/backbone.keyboard/backbone.keyboard',
+      handlebars: 'lib/handlebars',
+      'handlebars.lib': '../vendor/handlebars/handlebars.min',
+      swag: '../vendor/swag/lib/swag',
       jquery: '../vendor/jquery/dist/jquery.min',
       text: '../vendor/requirejs-text/text',
+      json: '../vendor/requirejs-plugins/src/json',
       tmpl: '../templates',
+      resources: '../../res',
       underscore: 'lib/underscore',
       'underscore.lib': '../vendor/underscore/underscore',
       'underscore.string': '../vendor/underscore.string/dist/underscore.string.min'
     },
+    map: {
+      'backbone.keyboard': {
+        backbone: 'backbone.lib'
+      }
+    },
     shim: {
-      backbone: {
+      'backbone.lib': {
         deps: ['underscore', 'jquery'],
         exports: 'Backbone'
       },
@@ -21,8 +32,11 @@ requirejs.config({
       jquery: {
         exports: '$'
       },
-      handlebars: {
+      'handlebars.lib': {
         exports: 'Handlebars'
+      },
+      swag: {
+        exports: 'Swag'
       }
     }
   });
@@ -34,13 +48,15 @@ requirejs(
   'footer-view',
   'content-view',
   'error-view',
+  'filter-view',
   'device-collection'],
-  function (HeaderView, FooterView, ContentView, ErrorView, DeviceCollection) {
+  function (HeaderView, FooterView, ContentView, ErrorView, FilterView, DeviceCollection) {
   var deviceCollection = new DeviceCollection(),
-    headerView = new HeaderView({collection: deviceCollection}),
+    headerView = new HeaderView({model: deviceCollection}),
     errorView = new ErrorView(),
     footerView = new FooterView(),
+    filterView = new FilterView({model: deviceCollection}),
     contentView = new ContentView({model: deviceCollection});
-
   deviceCollection.fetch();
+  this.filterView.$el.hide();
 });

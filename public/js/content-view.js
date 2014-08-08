@@ -1,10 +1,14 @@
 define(
   ['backbone',
   'handlebars',
-  'text!tmpl/content.hbs'],
-function (Backbone, Handlebars, tmpl) {
+  'text!tmpl/content.hbs',
+  'text!tmpl/content-loading.hbs'],
+function (Backbone, Handlebars, tmpl, loadingTmpl) {
   return Backbone.View.extend({
     el: '.content',
+    events: {
+      'click .js-clear-filter': 'clearFilter'
+    },
     initialize: function () {
       this.listenTo(this.model, 'request', function () {
         this.renderLoading();
@@ -14,11 +18,18 @@ function (Backbone, Handlebars, tmpl) {
       });
     },
     render: function () {
-      var model = this.model.toJSON();
+      var model = {};
+      model.devices = this.model.toJSON();
+      model.filters = this.model.filters;
       this.$el.html(Handlebars.compile(tmpl)(model));
     },
     renderLoading: function () {
-      this.$el.html('LOADING...');
+      this.$el.html(Handlebars.compile(loadingTmpl)({}));
+    },
+    clearFilter: function (ev) {
+      ev.preventDefault();
+      this.model.clearFilter();
+      this.model.fetch({reset: true});
     }
   });
 });
