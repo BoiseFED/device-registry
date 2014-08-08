@@ -9,6 +9,12 @@ define(['underscore', 'bus', 'backbone', 'device-model'], function (_, bus, Back
         filters = [];
       if (_.isObject(this.filters)) {
         filters = _.map(this.filters, function (value, key) {
+          switch (key.toLowerCase()) {
+            case 'ischeckedout':
+              return 'isCheckedOut=true';
+            case 'isnotcheckedout':
+              return 'isCheckedOut=false';
+          }
           return key + '__nocase=' + value;
         });
         url += '&' + filters.join('&');

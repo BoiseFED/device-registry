@@ -1,10 +1,10 @@
 <div class="devices-container grid">
   {{#if filters}}
     <div class="filters">
-      <a href='#' class='js-clear-filter'>clear</a>
       <ul>
+        <li class='button clear-filter'><a href='#' class='js-clear-filter'>clear</a></li>
         {{#each filters}}
-        <li>{{@key}} contains '{{.}}'</li>
+        <li>{{@key}}{{#if .}} {{.}}{{/if}}</li>
         {{/each}}
       </ul>
     </div>

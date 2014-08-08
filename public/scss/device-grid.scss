@@ -93,10 +93,22 @@ $gutter:1.7%;
   .filters {
     ul {
       list-style-type: none;
+      padding: 0;
       li {
         display: inline;
         border: solid 1px $slate;
-        padding:5px 2px;
+        padding: 5px;
+        border-radius: 3px;
+      }
+    }
+
+    .clear-filter {
+      background: $green;
+      color: $white;
+      border: solid 1px $green;
+      a {
+        color: $white;
+        text-decoration: none;
       }
     }
   }

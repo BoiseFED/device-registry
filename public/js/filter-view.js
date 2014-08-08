@@ -27,10 +27,14 @@ define([
       var filterText = this.$('.js-filter').val(),
         filters = _.reduce(filterText.split(' '), function (filters, filter) {
           var keyval = filter.split(':');
-          filters[keyval[0]] = keyval[1];
+          if (!_.isEmpty(keyval[0])) {
+            filters[keyval[0]] = keyval[1];
+          }
           return filters;
         }, {});
-      this.model.filterBy(filters);
+      if (!_.isEmpty(filters)) {
+        this.model.filterBy(filters);
+      }
     },
   });
 });
