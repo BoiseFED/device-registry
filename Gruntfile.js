@@ -77,7 +77,8 @@ module.exports = function (grunt) {
       export_mongo: 'mongoexport --db ag_devicedb --collection devices ' +
         ' --jsonArray | jq "." >> data/dummy.json',
       import_mongo: 'mongoimport --db ag_devicedb --collection devices ' +
-        '--drop --type json --jsonArray --file data/dummy.json'
+        '--drop --type json --jsonArray --file data/dummy.json',
+      empty_mongo: 'mongo ag_devicedb --eval "db.devices.drop()"'
     },
     watch: {
       options: {
@@ -132,6 +133,7 @@ module.exports = function (grunt) {
   ]);
   grunt.registerTask('backup-db', ['exec:export_mongo']);
   grunt.registerTask('restore-db', ['exec:import_mongo']);
+  grunt.registerTask('empty-db', ['exec:empty_mongo']);
   grunt.registerTask('dev', ['check', 'concurrent:dev']);
   grunt.registerTask('default', ['dev']);
 };
