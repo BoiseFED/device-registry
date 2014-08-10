@@ -41,10 +41,11 @@ define(['underscore', 'bus', 'backbone', 'device-model'], function (_, bus, Back
       if (errors) {
         return errors;
       }
-      this.create(model, {validate: false, wait: true, reset: true});
+      this.create(model, {validate: false, wait: true});
+      this.fetch({reset: true});
     },
     filterBy: function (filterText) {
-      var filters = _.reduce(filterText.split(' '), function (filters, filter) {
+      this.filters = _.reduce(filterText.split(' '), function (filters, filter) {
         var keyval = filter.split(':');
         if (!_.isEmpty(keyval[0])) {
           filters[keyval[0]] = keyval[1];
@@ -52,8 +53,7 @@ define(['underscore', 'bus', 'backbone', 'device-model'], function (_, bus, Back
         return filters;
       }, {});
 
-      if (!_.isEmpty(filters)) {
-        this.filters = filters;
+      if (!_.isEmpty(this.filters)) {
         this.fetch({reset: true});
       }
     },

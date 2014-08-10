@@ -24,7 +24,7 @@
         <div class="os" data-sortBy="os" {{#is sort "os"}}data-asc="{{order}}"{{/is}}>OS</div>
         <div class="ver" data-sortBy="version" {{#is sort "version"}}data-asc="{{order}}"{{/is}}>Ver</div>
         <div class="location" data-sortBy="location" {{#is sort "location"}}data-asc="{{order}}"{{/is}}>Location</div>
-        <div class="checkin-details" data-sortBy="checkedOutBy" {{#is sort "checkedOutBy"}}data-asc="{{order}}"{{/is}}>CheckedOut Status</div>
+        <div class="checkin-details" data-sortBy="checkedOutBy" {{#is sort "checkedOutBy"}}data-asc="{{order}}"{{/is}}>Last Checkout</div>
       </div>
     </div>
   {{#each devices}}
@@ -41,7 +41,7 @@
           <div class="location">{{location}}</div>
           <div class="formfactor">{{formfactor}}</div>
           <div class="checkedin">{{#if isCheckedOut}}{{checkedOutTo}}{{else}}Checked in{{/if}}</div>
-          <div class="checkin-details">{{#if isCheckedOut}}{{checkedOutTo}} on {{formatDate checkedOutOn "%m/%d/%y"}}{{/if}}</div>
+          <div class="checkin-details" {{#if isCheckedOut}}title="{{formatDate checkedOutOn '%m/%d/%y %I:%M %p'}}">{{timeago checkedOutOn}}{{else}}>-{{/if}}</div>
         </div>
     </div>
   {{/each}}
