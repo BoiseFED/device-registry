@@ -75,7 +75,7 @@ module.exports = function (grunt) {
       node_test: 'npm run test-node',
       browser_test: 'npm run test-browser',
       export_mongo: 'mongoexport --db ag_devicedb --collection devices ' +
-        ' --jsonArray | jq "." >> data/dummy.json',
+        ' --jsonArray | jq "." > data/dummy.json',
       import_mongo: 'mongoimport --db ag_devicedb --collection devices ' +
         '--drop --type json --jsonArray --file data/dummy.json',
       empty_mongo: 'mongo ag_devicedb --eval "db.devices.drop()"'
