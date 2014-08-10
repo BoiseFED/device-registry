@@ -249,7 +249,8 @@ define([
           });
           var url = this.collection.url();
           expect(url)
-            .to.equal('/api/devices?select=-comments&location__nocase=Boise&os__nocase=Android');
+            .to.equal('/api/devices?select=-comments&location__nocase=Boise&os__nocase=Android' +
+              '&sort=name');
         });
 
         it('should clear filters', function () {
@@ -260,7 +261,7 @@ define([
           this.collection.clearFilter();
           var url = this.collection.url();
           expect(url)
-            .to.equal('/api/devices?select=-comments');
+            .to.equal('/api/devices?select=-comments&sort=name');
         });
 
         it('should add sort to the url', function () {
