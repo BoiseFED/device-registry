@@ -552,3 +552,410 @@
     "__v": 0
   }
 ]
+[
+  {
+    "_id": {
+      "$oid": "53e4456baf312d00a22223ad"
+    },
+    "name": "Nexus 7",
+    "serial": "86414ef3",
+    "location": "Boise",
+    "formfactor": "Tablet",
+    "os": "Android",
+    "version": "4.4",
+    "comments": [
+      {
+        "author": "system",
+        "body": "Device Created",
+        "_id": {
+          "$oid": "53e4456baf312d00a22223ae"
+        },
+        "date": {
+          "$date": "2014-08-07T21:35:07.328-0600"
+        },
+        "type": "created"
+      },
+      {
+        "author": "system",
+        "body": "Checked out by adam.m.clark",
+        "_id": {
+          "$oid": "53e4456baf312d00a22223ae"
+        },
+        "date": {
+          "$date": "2014-08-07T22:35:07.328-0600"
+        },
+        "type": "checkout"
+      }
+    ],
+    "isCheckedOut": true,
+    "checkedOutOn": {
+      "$date": "2014-08-07T22:35:07.328-0600"
+    },
+    "checkedOutTo": "adam.m.clark",
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "53e4458eaf312d00a22223af"
+    },
+    "name": "Nexus 5",
+    "serial": "1908827",
+    "location": "Chicago",
+    "formfactor": "Phone",
+    "os": "Android",
+    "version": "4.2",
+    "comments": [
+      {
+        "author": "system",
+        "body": "Device Created",
+        "_id": {
+          "$oid": "53e4458eaf312d00a22223b0"
+        },
+        "date": {
+          "$date": "2014-08-07T21:35:42.326-0600"
+        },
+        "type": "comment"
+      }
+    ],
+    "isCheckedOut": false,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "53e445a1af312d00a22223b1"
+    },
+    "name": "iPhone 3s",
+    "serial": "492817",
+    "location": "Irvine",
+    "formfactor": "Phone",
+    "os": "iOS",
+    "version": "3",
+    "comments": [
+      {
+        "author": "system",
+        "body": "Device Created",
+        "_id": {
+          "$oid": "53e445a1af312d00a22223b2"
+        },
+        "date": {
+          "$date": "2014-08-07T21:36:01.420-0600"
+        },
+        "type": "comment"
+      }
+    ],
+    "isCheckedOut": false,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "53e445baaf312d00a22223b3"
+    },
+    "name": "iPad Mini 2",
+    "serial": "5638272",
+    "location": "New York",
+    "formfactor": "Tablet",
+    "os": "iOS",
+    "version": "5",
+    "comments": [
+      {
+        "author": "system",
+        "body": "Device Created",
+        "_id": {
+          "$oid": "53e445baaf312d00a22223b4"
+        },
+        "date": {
+          "$date": "2014-08-07T21:36:26.413-0600"
+        },
+        "type": "comment"
+      }
+    ],
+    "isCheckedOut": false,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "53e445e4af312d00a22223b5"
+    },
+    "name": "IBM Thinkpad",
+    "serial": "32902839",
+    "location": "Irvine",
+    "formfactor": "Laptop",
+    "os": "Windows",
+    "version": "8",
+    "comments": [
+      {
+        "author": "system",
+        "body": "Device Created",
+        "_id": {
+          "$oid": "53e445e4af312d00a22223b6"
+        },
+        "date": {
+          "$date": "2014-08-07T21:37:08.639-0600"
+        },
+        "type": "comment"
+      }
+    ],
+    "isCheckedOut": false,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "53e6e371a4471550f98790c2"
+    },
+    "name": "IBM Thinkpad",
+    "serial": "2891726",
+    "location": "Boise",
+    "formfactor": "Laptop",
+    "os": "Windows",
+    "version": "8",
+    "comments": [
+      {
+        "author": "system",
+        "body": "Device Created",
+        "_id": {
+          "$oid": "53e6e371a4471550f98790c3"
+        },
+        "date": {
+          "$date": "2014-08-09T21:13:53.093-0600"
+        },
+        "type": "created"
+      }
+    ],
+    "isCheckedOut": false,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "53e6e38ba4471550f98790c4"
+    },
+    "name": "IBM Thinkpad",
+    "serial": "389209837",
+    "location": "Chicago",
+    "formfactor": "Laptop",
+    "os": "Windows",
+    "version": "8",
+    "comments": [
+      {
+        "author": "system",
+        "body": "Device Created",
+        "_id": {
+          "$oid": "53e6e38ba4471550f98790c5"
+        },
+        "date": {
+          "$date": "2014-08-09T21:14:19.526-0600"
+        },
+        "type": "created"
+      }
+    ],
+    "isCheckedOut": false,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "53e6e3c3a4471550f98790c6"
+    },
+    "name": "Nexus 7",
+    "serial": "62892873",
+    "location": "Chicago",
+    "formfactor": "Tablet",
+    "os": "Android",
+    "version": "4.4",
+    "comments": [
+      {
+        "author": "system",
+        "body": "Device Created",
+        "_id": {
+          "$oid": "53e6e3c3a4471550f98790c7"
+        },
+        "date": {
+          "$date": "2014-08-09T21:15:15.429-0600"
+        },
+        "type": "created"
+      }
+    ],
+    "isCheckedOut": false,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "53e6e3dca4471550f98790c8"
+    },
+    "name": "Nexus 7",
+    "serial": "738972482",
+    "location": "Irvine",
+    "formfactor": "Tablet",
+    "os": "Android",
+    "version": "4.3",
+    "comments": [
+      {
+        "author": "system",
+        "body": "Device Created",
+        "_id": {
+          "$oid": "53e6e3dca4471550f98790c9"
+        },
+        "date": {
+          "$date": "2014-08-09T21:15:40.691-0600"
+        },
+        "type": "created"
+      }
+    ],
+    "isCheckedOut": false,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "53e6e464a4471550f98790ca"
+    },
+    "name": "iPad Mini 2",
+    "serial": "47827839",
+    "location": "Boise",
+    "formfactor": "Tablet",
+    "os": "iOS",
+    "version": "5",
+    "comments": [
+      {
+        "author": "system",
+        "body": "Device Created",
+        "_id": {
+          "$oid": "53e6e464a4471550f98790cb"
+        },
+        "date": {
+          "$date": "2014-08-09T21:17:56.852-0600"
+        },
+        "type": "created"
+      }
+    ],
+    "isCheckedOut": false,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "53e6e475a4471550f98790cc"
+    },
+    "name": "iPad Mini 2",
+    "serial": "92098382",
+    "location": "Seatle",
+    "formfactor": "Tablet",
+    "os": "iOS",
+    "version": "5",
+    "comments": [
+      {
+        "author": "system",
+        "body": "Device Created",
+        "_id": {
+          "$oid": "53e6e475a4471550f98790cd"
+        },
+        "date": {
+          "$date": "2014-08-09T21:18:13.159-0600"
+        },
+        "type": "created"
+      }
+    ],
+    "isCheckedOut": false,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "53e6e4a2a4471550f98790ce"
+    },
+    "name": "iPhone 3s",
+    "serial": "109810982",
+    "location": "Boise",
+    "formfactor": "Phone",
+    "os": "iOS",
+    "version": "3",
+    "comments": [
+      {
+        "author": "system",
+        "body": "Device Created",
+        "_id": {
+          "$oid": "53e6e4a2a4471550f98790cf"
+        },
+        "date": {
+          "$date": "2014-08-09T21:18:58.257-0600"
+        },
+        "type": "created"
+      }
+    ],
+    "isCheckedOut": false,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "53e6e4b0a4471550f98790d0"
+    },
+    "name": "iPhone 3s",
+    "serial": "30918982",
+    "location": "Seatle",
+    "formfactor": "Phone",
+    "os": "iOS",
+    "version": "3",
+    "comments": [
+      {
+        "author": "system",
+        "body": "Device Created",
+        "_id": {
+          "$oid": "53e6e4b0a4471550f98790d1"
+        },
+        "date": {
+          "$date": "2014-08-09T21:19:12.644-0600"
+        },
+        "type": "created"
+      }
+    ],
+    "isCheckedOut": false,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "53e6e4d1a4471550f98790d2"
+    },
+    "name": "Nexus 5",
+    "serial": "782798273",
+    "location": "Boise",
+    "formfactor": "Phone",
+    "os": "Android",
+    "version": "4.4",
+    "comments": [
+      {
+        "author": "system",
+        "body": "Device Created",
+        "_id": {
+          "$oid": "53e6e4d1a4471550f98790d3"
+        },
+        "date": {
+          "$date": "2014-08-09T21:19:45.785-0600"
+        },
+        "type": "created"
+      }
+    ],
+    "isCheckedOut": false,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "53e6e502a4471550f98790d4"
+    },
+    "name": "Nexus 5",
+    "serial": "2092898372",
+    "location": "Los Angeles",
+    "formfactor": "Phone",
+    "os": "Android",
+    "version": "4.3",
+    "comments": [
+      {
+        "author": "system",
+        "body": "Device Created",
+        "_id": {
+          "$oid": "53e6e502a4471550f98790d5"
+        },
+        "date": {
+          "$date": "2014-08-09T21:20:34.516-0600"
+        },
+        "type": "created"
+      }
+    ],
+    "isCheckedOut": false,
+    "__v": 0
+  }
+]
