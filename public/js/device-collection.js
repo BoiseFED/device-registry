@@ -2,6 +2,7 @@ define(['underscore', 'bus', 'backbone', 'device-model'], function (_, bus, Back
   return Backbone.Collection.extend({
     initialize: function () {
       this.order = '';
+      this.sort = 'name';
     },
     model: deviceModel,
     url: function () {
@@ -32,7 +33,8 @@ define(['underscore', 'bus', 'backbone', 'device-model'], function (_, bus, Back
       model.comments = [{
         author: 'system',
         date: Date.now(),
-        body: 'Device Created'
+        body: 'Device Created',
+        type: 'created'
       }];
       var validationModel = new this.model(),
         errors = validationModel.validate(model);
