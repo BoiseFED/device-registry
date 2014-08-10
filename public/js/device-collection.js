@@ -41,8 +41,7 @@ define(['underscore', 'bus', 'backbone', 'device-model'], function (_, bus, Back
       if (errors) {
         return errors;
       }
-      this.create(model, {validate: false, wait: true});
-      this.fetch({reset: true});
+      this.create(model, {validate: false});
     },
     filterBy: function (filterText) {
       this.filters = _.reduce(filterText.split(' '), function (filters, filter) {
