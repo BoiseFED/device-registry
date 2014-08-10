@@ -5,3 +5,4 @@ config.json
 *.orig
 public/css/main.css
 .sass-cache
+npm-debug.log

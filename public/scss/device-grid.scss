@@ -1,12 +1,19 @@
 //Device Grid
 $gutter:1.7%;
  .devices-container {
+  position: relative;
   width: 960px;
   margin: 0 auto;
+  margin-bottom: 50px;
   padding-top: 0;
   @extend .clearfix;
   &.grid {
     .device {
+
+      &.header {
+        display: none;
+      }
+
       background: $lightgrey;
       border: 1px #d4d4d4 solid;
       float: left;
@@ -30,14 +37,18 @@ $gutter:1.7%;
         width: 100%;
         height: 309px;
         transition: .25s all;
-        h3.title {
+        div.title {
           margin-top: 50px;
         }
       }
       .image {
         margin: 30px 0 0;
       }
-      .extra-info {
+      .location, .formfactor, .serial, .checkedin {
+        display: none;
+        font-size: 14px;
+      }
+      .formfactor-icon, .checkedin-icon, .checkin-details, .os, .ver {
         display: none;
       }
       &:hover {
@@ -62,7 +73,7 @@ $gutter:1.7%;
               font-size: 12px;
             }
           }
-          .extra-info {
+          .location, .formfactor, .serial, .checkedin {
             display: block;
           }
         }
@@ -74,7 +85,7 @@ $gutter:1.7%;
     .device {
       clear:both;
 
-      padding:30px;
+      padding:10px;
       @extend .clearfix;
 
       &:nth-child(odd) {
@@ -83,17 +94,75 @@ $gutter:1.7%;
         border-width:1px 0 1px 0;
       }
 
+      &.header {
+        color: $white;
+        background-color: $black;
+      }
+
       .image {
+        display: none;
         float:left;
         margin-right:40px;
+
+        img {
+          width: 50px;
+          height: auto;
+        }
+      }
+
+      .device-info {
+        width: 960px;
+        float: left;
+
+        .title {
+          width: 20%;
+          height: 20px;
+          float: left;
+        }
+
+        .formfactor, .checkedin, .osver {
+          display: none;
+        }
+
+        .formfactor-icon, .checkedin-icon {
+          width: 3%;
+          float: left;
+        }
+
+        .os {
+          width: 10%;
+          float: left;
+        }
+
+        .ver {
+          width: 5%;
+          float: left;
+        }
+
+        .location {
+          float: left;
+          width: 12%;
+        }
+
+        .serial {
+          float: left;
+          width: 20%;
+        }
+
+        .checkedin-details {
+          float: left;
+        }
       }
     }
   }
 
   .filters {
+    height: 50px;
+    padding: 1px;
     ul {
       list-style-type: none;
       padding: 0;
+      margin-top: 5px;
       li {
         display: inline;
         border: solid 1px $slate;
@@ -110,6 +179,25 @@ $gutter:1.7%;
         color: $white;
         text-decoration: none;
       }
+    }
+  }
+
+  .viewswitch {
+    position: absolute;
+    top: -6px;
+    left: -55px;
+    font-size: 40px;
+    color: $green;
+    width: 40px;
+    a {
+      text-decoration: none;
+      color: $slate;
+    }
+    a.active {
+      color: $green;
+    }
+    a:hover {
+      color: $green;
     }
   }
 }
