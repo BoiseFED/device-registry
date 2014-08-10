@@ -43,16 +43,27 @@ define(['underscore', 'bus', 'backbone', 'device-model'], function (_, bus, Back
       }
       this.create(model, {validate: false});
     },
-    filterBy: function (filters) {
-      this.filters = filters;
-      this.fetch({reset: true});
+    filterBy: function (filterText) {
+      var filters = _.reduce(filterText.split(' '), function (filters, filter) {
+        var keyval = filter.split(':');
+        if (!_.isEmpty(keyval[0])) {
+          filters[keyval[0]] = keyval[1];
+        }
+        return filters;
+      }, {});
+
+      if (!_.isEmpty(filters)) {
+        this.filters = filters;
+        this.fetch({reset: true});
+      }
     },
     clearFilter: function () {
       this.filters = null;
       this.fetch({reset: true});
     },
-    sortBy: function (field) {
+    sortBy: function (field, asc) {
       this.sort = field;
+      this.order = asc === '-' ? '' : '-';
       this.fetch({reset: true});
     },
     clearSort: function () {

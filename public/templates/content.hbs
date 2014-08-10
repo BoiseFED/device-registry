@@ -1,4 +1,10 @@
-<div class="devices-container grid">
+<div class="devices-container {{viewType}}">
+  {{#if devices}}
+    <div class="viewswitch">
+      <a href="#" class="{{#is viewType 'grid'}}active{{/is}}"><i class="icon-grid"></i></a>
+      <a href="#" class="{{#is viewType 'list'}}active{{/is}}"><i class="icon-list"></i></a>
+    </div>
+  {{/if}}
   {{#if filters}}
     <div class="filters">
       <ul>
@@ -9,18 +15,33 @@
       </ul>
     </div>
   {{/if}}
+    <div class="device header">
+      <div class="device-info">
+        <div class="formfactor-icon">&nbsp;</div>
+        <div class="checkedin-icon">&nbsp;</div>
+        <div class="title" data-sortBy="name" {{#is sort "name"}}data-asc="{{order}}"{{/is}}>Name</div>
+        <div class="serial" data-sortBy="serial" {{#is sort "serial"}}data-asc="{{order}}"{{/is}}>Serial</div>
+        <div class="os" data-sortBy="os" {{#is sort "os"}}data-asc="{{order}}"{{/is}}>OS</div>
+        <div class="ver" data-sortBy="version" {{#is sort "version"}}data-asc="{{order}}"{{/is}}>Ver</div>
+        <div class="location" data-sortBy="location" {{#is sort "location"}}data-asc="{{order}}"{{/is}}>Location</div>
+        <div class="checkin-details" data-sortBy="checkedOutBy" {{#is sort "checkedOutBy"}}data-asc="{{order}}"{{/is}}>CheckedOut Status</div>
+      </div>
+    </div>
   {{#each devices}}
     <div class="device">
       <div class="image"><img src="images/fpo-device.png"/></div>
         <div class="device-info">
-          <h3 class="title">{{name}}</h3>
-          <h4 class="os">{{os}} {{version}}</h4>
-          <div class="extra-info">
-            <h4 class="location">{{location}}</h4>
-            <h4 class="formfactor">{{formfactor}}</h4>
-            <h4 class="serial">{{serial}}</h4>
-            <h4 class="checkedin">{{#if isCheckedOut}}Checked out to {{checkedOutTo}}{{else}}Checked in{{/if}}</h4>
-          </div>
+          <div class="formfactor-icon"><i class="icon-{{formfactor}}" title="{{formfactor}}"></i></div>
+          <div class="checkedin-icon"><i class="icon-{{#if isCheckedOut}}check-out{{else}}check-in{{/if}}" title="{{#if isCheckedOut}}Checked-Out{{else}}Checked-In{{/if}}"></i></div>
+          <div class="title">{{name}}</div>
+          <div class="serial">{{serial}}</div>
+          <div class="osver">{{os}} {{version}}</div>
+          <div class="os">{{os}}</div>
+          <div class="ver">{{version}}</div>
+          <div class="location">{{location}}</div>
+          <div class="formfactor">{{formfactor}}</div>
+          <div class="checkedin">{{#if isCheckedOut}}{{checkedOutTo}}{{else}}Checked in{{/if}}</div>
+          <div class="checkin-details">{{#if isCheckedOut}}{{checkedOutTo}} on {{formatDate checkedOutOn "%m/%d/%y"}}{{/if}}</div>
         </div>
     </div>
   {{/each}}

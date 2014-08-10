@@ -243,10 +243,7 @@ define([
         });
 
         it('should add filters to the url', function () {
-          this.collection.filterBy({
-            location: 'Boise',
-            os: 'Android'
-          });
+          this.collection.filterBy('location:Boise os:Android');
           var url = this.collection.url();
           expect(url)
             .to.equal('/api/devices?select=-comments&location__nocase=Boise&os__nocase=Android' +
@@ -254,10 +251,7 @@ define([
         });
 
         it('should clear filters', function () {
-          this.collection.filterBy({
-            location: 'Boise',
-            os: 'Android'
-          });
+          this.collection.filterBy('location:Boise os:Android');
           this.collection.clearFilter();
           var url = this.collection.url();
           expect(url)
@@ -266,6 +260,13 @@ define([
 
         it('should add sort to the url', function () {
           this.collection.sortBy('location');
+          var url = this.collection.url();
+          expect(url)
+            .to.equal('/api/devices?select=-comments&sort=-location');
+        });
+
+        it('should add desc sort to the url', function () {
+          this.collection.sortBy('location', '-');
           var url = this.collection.url();
           expect(url)
             .to.equal('/api/devices?select=-comments&sort=location');

@@ -26,16 +26,16 @@
 .icon-poo:before {
 	content: "\e600";
 }
-.icon-screen:before {
+.icon-screen:before, .icon-Misc:before {
 	content: "\e601";
 }
-.icon-laptop:before {
+.icon-laptop:before, .icon-Laptop:before {
 	content: "\e602";
 }
-.icon-mobile:before {
+.icon-mobile:before, .icon-Phone:before {
 	content: "\e603";
 }
-.icon-tablet:before {
+.icon-tablet:before, .icon-Tablet:before {
 	content: "\e604";
 }
 .icon-spinner:before {
