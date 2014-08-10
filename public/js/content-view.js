@@ -12,7 +12,7 @@ function (Backbone, Handlebars, tmpl, loadingTmpl) {
       'click .header .device-info div': 'sortData',
     },
     initialize: function () {
-      this.viewType = 'list';
+      this.viewType = 'grid';
       this.listenTo(this.model, 'request', function () {
         this.renderLoading();
       });
