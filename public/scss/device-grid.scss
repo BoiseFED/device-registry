@@ -16,6 +16,7 @@ $gutter:1.7%;
       margin: 0 $gutter $gutter 0;
       overflow: hidden;
       position: relative;
+      cursor: pointer;
 
       &:nth-child(3n+3) {
         margin-right: 0;

@@ -29,13 +29,13 @@
 .icon-screen:before {
 	content: "\e601";
 }
-.icon-laptop:before {
+.icon-laptop:before, .icon-Laptop:before {
 	content: "\e602";
 }
-.icon-mobile:before {
+.icon-mobile:before, .icon-Phone:before {
 	content: "\e603";
 }
-.icon-tablet:before {
+.icon-tablet:before, .icon-Tablet:before {
 	content: "\e604";
 }
 .icon-spinner:before {
@@ -74,15 +74,61 @@
 .icon-github:before {
 	content: "\e610";
 }
-.icon-apple:before {
+.icon-apple:before, .icon-iOS:before {
 	content: "\e611";
 }
-.icon-android:before {
+.icon-android:before, .icon-Android:before {
 	content: "\e612";
 }
-.icon-windows:before {
+.icon-windows:before, .icon-Windows:before {
 	content: "\e613";
 }
 .icon-arrow-up:before {
 	content: "\e614";
+}
+.icon-alt-laptop:before, .icon-alt-Laptop:before{
+	content: "\e001";
+}
+.icon-alt-screen:before {
+	content: "\e002";
+}
+.icon-alt-tablet:before, .icon-alt-Tablet:before {
+	content: "\e003";
+}
+.icon-alt-mobile:before , .icon-alt-Phone:before{
+	content: "\e004";
+}
+.icon-alt-apple:before, .icon-alt-iOS:before {
+	content: "\f179";
+}
+.icon-alt-windows:before, .icon-alt-Windows:before {
+	content: "\f17a";
+}
+.icon-alt-android:before, .icon-alt-Android:before {
+	content: "\f17b";
+}
+.icon-alt-linux:before {
+	content: "\f17c";
+}
+
+.icon-stack {
+  position: relative;
+  display: inline-block;
+  width: 6em;
+  height: 4em;
+  line-height: 4em;
+  vertical-align: middle;
+}
+.icon-stack-os,
+.icon-stack-device {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+.icon-stack-os {
+  line-height: inherit;
+}
+.icon-stack-device {
+  font-size: 4em;
 }

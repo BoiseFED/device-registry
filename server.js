@@ -10,7 +10,7 @@ var express = require('express'),
   //locations = JSON.parse(fs.readFileSync('res/locations.json', 'utf8'));
 
 var skip = function (req, res) {
-  if (req.url !== '/') {
+  if (req.url !== '/' && req.url.substring(0, 4) !== '/api') {
     return true;
   }
   return false;

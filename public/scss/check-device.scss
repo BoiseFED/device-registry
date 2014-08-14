@@ -5,52 +5,86 @@
 		vertical-align: top;
 	}
 
-	div:first-child {
-		margin-right: 50px;
-	}
-
 	.device-info {
+		margin-bottom: 20px;
+		width: 590px;
 		p {
 			margin: 5px 0;
 		}
 	}
 
+	.image {
+		margin-top: 10px;
+		margin-bottom: 20px;
+		font-size: 60px;
+
+		.icon-alt-Laptop {
+			margin-top: 20px;
+		}
+
+		.icon-alt-Misc:before {
+			content: "?";
+		}
+	}
+
+	.comment-form {
+		textarea {
+			width: 100%;
+			height: 120px;
+		}
+		margin: 0 0 20px;
+		width: 100%;
+		padding-left: 360px;
+
+		a {
+			width: 200px;
+			font-size: 20px;
+		}
+	}
+
+
+
 	.device-actions {
 		width: 260px;
-		margin: 20px 0 80px;
-		a {
-			display: block;
-			color: $white;
-			font-size: 25px;
-			padding: 10px;
-			text-decoration: none;
-			margin: 8px 0;
-			&:hover {
-				background: $black !important;
-			}
+		margin: 20px 0 20px;
+	}
 
-			&.check-in {
-				background-color: $green;
-				&:before {
-					margin-right: 10px;
-					font-size: 20px;
-				}
-			}
+	a {
+		display: block;
+		color: $white;
+		font-size: 25px;
+		padding: 10px;
+		text-decoration: none;
+		margin: 8px 0;
+		&:hover {
+			background: $black !important;
+		}
 
-			&.check-out {
-				background-color: $blue;
-				&:before {
-					margin-right: 10px;
-					font-size: 20px;
-				}
+		&.check-in {
+			background-color: $green;
+			&:before {
+				margin-right: 10px;
+				font-size: 20px;
 			}
+		}
 
-			&.device-error {
-				background-color: $red;
-				&:before {
-					margin-right: 10px;
-					font-size: 20px;
-				}
+		&.check-out {
+			background-color: $blue;
+			&:before {
+				margin-right: 10px;
+				font-size: 20px;
+			}
+		}
+
+		&.comment {
+			background-color: $blue;
+		}
+
+		&.device-error {
+			background-color: $red;
+			&:before {
+				margin-right: 10px;
+				font-size: 20px;
 			}
 		}
 	}

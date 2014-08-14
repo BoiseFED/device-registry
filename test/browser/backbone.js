@@ -56,7 +56,7 @@ define([
             this.model.checkout('mstevens');
             expect(this.model.isCheckedOut()).to.equal(true);
             expect(this.model.get('checkedOutTo')).to.equal('mstevens');
-            expect(this.model.get('comments')[1].type).to.equal('checkout');
+            expect(this.model.get('comments')[0].type).to.equal('checkout');
           });
 
           it('should not checkout if already checked out', function () {
