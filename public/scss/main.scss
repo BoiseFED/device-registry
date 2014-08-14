@@ -5,10 +5,7 @@ $white:#fff;
 $blue: #3967ce;
 $red: #ce3939;
 $gray: #f2f2f2;
-
-@import 'varibles';
-@import 'fonts';
-@import 'check-device';
+$standard: #ccc;
 
 *, *:before, *:after {
 	-moz-box-sizing: border-box;
@@ -23,6 +20,14 @@ body {
   font: 100% $font-stack;
   color: $black;
 }
+
+i {
+	margin-right: 10px;
+}
+
+@import 'varibles';
+@import 'fonts';
+@import 'check-device';
 
 .container {
 	width: 100%;
