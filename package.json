@@ -22,7 +22,7 @@
     "mocha-phantomjs": "^3.5.0",
     "mongoose": "^3.8.13",
     "morgan": "^1.1.1",
-    "node-restful": "git://github.com/adamclerk/node-restful.git#2711a2d",
+    "node-restful": "git://github.com/adamclerk/node-restful.git#5e76f19",
     "phantomjs": "^1.9.7-15",
     "sinon": "^1.10.3",
     "sinon-chai": "^2.5.0",

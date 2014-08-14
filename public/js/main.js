@@ -43,19 +43,10 @@ requirejs.config({
 
 // Start loading the main app file. Put all of
 // your application logic in there.
-requirejs(
-  ['header-view',
-  'footer-view',
-  'content-view',
-  'error-view',
-  'filter-view',
-  'device-collection'],
-  function (HeaderView, FooterView, ContentView, ErrorView, FilterView, DeviceCollection) {
-  var deviceCollection = new DeviceCollection(),
-    headerView = new HeaderView({model: deviceCollection}),
-    errorView = new ErrorView(),
-    footerView = new FooterView(),
-    filterView = new FilterView({model: deviceCollection}),
-    contentView = new ContentView({model: deviceCollection});
-  deviceCollection.fetch();
-});
+requirejs([
+  'backbone',
+  'router'
+], function (
+  Backbone,
+  router
+) {});

@@ -5,7 +5,8 @@
     "iOS",
     "Misc",
     "OSX",
-    "Windows"
+    "Windows",
+    "Linux"
   ],
   "message": "os {VALUE} not found"
 }

@@ -1,13 +1,19 @@
 define(
-  ['backbone',
+  [
+  'jquery',
+  'backbone',
   'handlebars',
+  'bus',
   'text!tmpl/content.hbs',
-  'text!tmpl/content-loading.hbs'],
-function (Backbone, Handlebars, tmpl, loadingTmpl) {
+  'text!tmpl/content-loading.hbs'
+],
+function ($, Backbone, Handlebars, bus, tmpl, loadingTmpl) {
   return Backbone.View.extend({
-    el: '.content',
+    tagName: 'div',
+    className: 'content',
     events: {
-      'click .js-clear-filter': 'clearFilter'
+      'click .js-clear-filter': 'clearFilter',
+      'click .device': 'moreInfo'
     },
     initialize: function () {
       this.listenTo(this.model, 'request', function () {
@@ -30,6 +36,11 @@ function (Backbone, Handlebars, tmpl, loadingTmpl) {
       ev.preventDefault();
       this.model.clearFilter();
       this.model.fetch({reset: true});
+    },
+    moreInfo: function (ev) {
+      ev.preventDefault();
+      var device = this.$(ev.currentTarget);
+      bus.navigate('device/' + device.attr('id'));
     }
   });
 });

@@ -1,6 +1,15 @@
-define(['backbone', 'underscore', 'location-model'], function (Backbone, _, locationModel) {
+define([
+  'backbone',
+  'underscore',
+  'location-model'
+], function (
+  Backbone,
+  _,
+  locationModel
+) {
   return Backbone.Model.extend({
-    url: '/api/devices',
+    idAttribute: '_id',
+    urlRoot: '/api/devices',
     fields: ['name', 'location', 'formfactor', 'serial', 'version', 'os'],
     validate: function (model) {
       var errors = _.reduce(this.fields, function (errors, field) {
@@ -11,6 +20,23 @@ define(['backbone', 'underscore', 'location-model'], function (Backbone, _, loca
       if (errors.length > 0) {
         return errors;
       }
+    },
+    save: function (values, options) {
+      options = _.extend({
+        headers: {
+          'If-Match': this.etag
+        }
+      }, options);
+      Backbone.Model.prototype.save.call(this, values, options);
+    },
+    parse: function (response, data) {
+      if (data.xhr && !_.isArray(data.xhr.responseJSON)) {
+        this.etag = data.xhr.getResponseHeader('etag');
+      } else {
+        this.etag = 'blank';
+      }
+
+      return response;
     },
     checkout: function (owner) {
       if (!_.isString(owner) || _.isEmpty(owner)) {
@@ -86,6 +112,32 @@ define(['backbone', 'underscore', 'location-model'], function (Backbone, _, loca
     isCheckedOut: function () {
       return this.get('isCheckedOut');
     },
+    comment: function (body, author) {
+      if (!_.isString(author) || _.isEmpty(author)) {
+        this.trigger('invalid', this,
+          'The author you\'ve provided is invalid.');
+        return false;
+      }
+
+      if (!_.isString(body) || _.isEmpty(body)) {
+        this.trigger('invalid', this,
+          'The body you\'ve provided is invalid.');
+        return false;
+      }
+
+      var comments = this.get('comments');
+      if (!_.isArray(comments)) {
+        comments = [];
+      }
+
+      comments.unshift({
+        body: body,
+        author: author,
+      });
+
+      this.set('comments', comments);
+      this.save();
+    },
     _validateEmptyAndUndefined: function (errors, model, fieldName) {
       var field = model[fieldName];
       if (_.isUndefined(field) || _.isEmpty(field)) {
@@ -97,7 +149,7 @@ define(['backbone', 'underscore', 'location-model'], function (Backbone, _, loca
       if (!_.isArray(comments)) {
         comments = [];
       }
-      comments.push({
+      comments.unshift({
         author: 'system',
         date: Date.now(),
         body: comment,
