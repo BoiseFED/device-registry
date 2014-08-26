@@ -14,7 +14,8 @@ requirejs.config({
       resources: '../../res',
       underscore: 'lib/underscore',
       'underscore.lib': '../vendor/underscore/underscore',
-      'underscore.string': '../vendor/underscore.string/dist/underscore.string.min'
+      'underscore.string': '../vendor/underscore.string/dist/underscore.string.min',
+      'localStorage': '../vendor/backbone.localstorage/backbone.localStorage'
     },
     map: {
       'backbone.keyboard': {

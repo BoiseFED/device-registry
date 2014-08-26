@@ -4,6 +4,7 @@ define([
   'location-model',
   'filter-model',
   'filter-view',
+  'author-model',
   'json!fixtures/device.json'
 ], function (
   DeviceCollection,
@@ -11,6 +12,7 @@ define([
   locationModel,
   filterModel,
   FilterView,
+  Author,
   device
 ) {
   describe('backbone', function () {
@@ -21,6 +23,7 @@ define([
           this.model.set('id', 1, {silent: true});
           this.saveStub = sinon.stub(this.model, 'save');
           this.triggerSpy = sinon.spy(this.model, 'trigger');
+          Author.set('name', 'adam.m.clark', {silent: true});
         });
 
         afterEach(function () {
@@ -35,6 +38,16 @@ define([
             var comments = this.model.get('comments');
             expect(comments[0].type).to.equal('test');
             expect(comments[0].author).to.equal('system');
+            expect(comments[0].body).to.equal(
+              'Lorem ipsum dolor sit amet, consectetur adipisicing elit.');
+          });
+
+          it('should take a custom user', function () {
+            this.model._systemComment('test',
+              'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'adam.m.clark');
+            var comments = this.model.get('comments');
+            expect(comments[0].type).to.equal('test');
+            expect(comments[0].author).to.equal('adam.m.clark');
             expect(comments[0].body).to.equal(
               'Lorem ipsum dolor sit amet, consectetur adipisicing elit.');
           });
@@ -53,9 +66,9 @@ define([
 
           it('should update checkedout status when checking out', function () {
             this.model.checkin();
-            this.model.checkout('mstevens');
+            this.model.checkout();
             expect(this.model.isCheckedOut()).to.equal(true);
-            expect(this.model.get('checkedOutTo')).to.equal('mstevens');
+            expect(this.model.get('checkedOutTo')).to.equal('adam.m.clark');
             expect(this.model.get('comments')[0].type).to.equal('checkout');
           });
 
@@ -66,26 +79,6 @@ define([
             expect(this.triggerSpy.args[0][0]).to.equal('invalid');
             expect(this.triggerSpy.args[0][2])
               .to.equal('You can\'t check-out this device. It\'s already checked out to aclark.');
-          });
-
-          it('should not checkout to an empty string', function () {
-            this.model.checkin();
-            this.model.checkout('');
-            expect(this.model.isCheckedOut()).to.equal(false);
-            expect(this.triggerSpy).to.be.calledOnce;
-            expect(this.triggerSpy.args[0][0]).to.equal('invalid');
-            expect(this.triggerSpy.args[0][2])
-              .to.equal('The owner you\'ve provided is invalid.');
-          });
-
-          it('should not checkout to an non string', function () {
-            this.model.checkin();
-            this.model.checkout({});
-            expect(this.model.isCheckedOut()).to.equal(false);
-            expect(this.triggerSpy).to.be.calledOnce;
-            expect(this.triggerSpy.args[0][0]).to.equal('invalid');
-            expect(this.triggerSpy.args[0][2])
-              .to.equal('The owner you\'ve provided is invalid.');
           });
         });
 

@@ -1,6 +1,8 @@
-<select name='{{name}}'>
+<select name='{{name}}' class='{{name}}'>
+  {{#unless selectedValue}}
     <option value=''>-</option>
+  {{/unless}}
   {{#each values}}
-    <option value='{{.}}'>{{.}}</option>
+    <option value='{{.}}'  {{#is . ../selectedValue}}selected{{/is}}>{{.}}</option>
   {{/each}}
 </select>

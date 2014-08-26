@@ -1,11 +1,13 @@
 define([
   'backbone',
   'underscore',
-  'location-model'
+  'location-model',
+  'author-model'
 ], function (
   Backbone,
   _,
-  locationModel
+  locationModel,
+  Author
 ) {
   return Backbone.Model.extend({
     idAttribute: '_id',
@@ -38,13 +40,7 @@ define([
 
       return response;
     },
-    checkout: function (owner) {
-      if (!_.isString(owner) || _.isEmpty(owner)) {
-        this.trigger('invalid', this,
-          'The owner you\'ve provided is invalid.');
-        return false;
-      }
-
+    checkout: function () {
       if (this.isCheckedOut()) {
         this.trigger('invalid', this,
           'You can\'t check-out this device. It\'s already checked out to ' +
@@ -53,10 +49,10 @@ define([
       }
 
       this.set('isCheckedOut', true, {silent: true});
-      this.set('checkedOutTo', owner, {silent: true});
+      this.set('checkedOutTo', Author.getName(), {silent: true});
       this.set('checkedOutOn', Date.now(), {silent: true});
       this.set('checkedInOn', null, {silent: true});
-      this._systemComment('checkout', 'Checked-out by ' + owner);
+      this._systemComment('checkout', 'Checked-out', Author.getName());
 
       this.save();
       return true;
@@ -69,7 +65,7 @@ define([
 
       this.set('isCheckedOut', false, {silent: true});
       this.set('checkedInOn', Date.now(), {silent: true});
-      this._systemComment('checkin', 'Checked-in');
+      this._systemComment('checkin', 'Checked-in', Author.getName());
 
       this.save();
       return true;
@@ -87,8 +83,11 @@ define([
           'You can\'t move this device. It\'s already at this location.');
         return false;
       }
+
+
+
       this.set('location', location, {silent: true});
-      this._systemComment('moved', 'This device was moved to ' + location);
+      this._systemComment('moved', 'This device was moved from ' + l + ' to ' + location, Author.getName());
       this.save();
       return true;
     },
@@ -105,8 +104,12 @@ define([
       return true;
     },
     update: function (obj) {
-      var change = _.map(obj, function (value, key) { return key + ':' + value; }).join(' and ');
-      this._systemComment('updated', 'This device was updated with:' + change);
+      var changedAttr = this.changedAttributes(obj),
+        change = _.map(changedAttr, function (value, key) {
+          return '"' + key + '" was "' + this.get(key) + '" is now "' + value + '"';
+        }, this).join(' and ');
+
+      this._systemComment('updated', change, Author.getName());
       this.save(obj);
     },
     isCheckedOut: function () {
@@ -144,13 +147,18 @@ define([
         errors.push(_.capitalize(fieldName) + ' is either empty or missing.');
       }
     },
-    _systemComment: function (type, comment) {
+    _systemComment: function (type, comment, author) {
       var comments = this.get('comments');
       if (!_.isArray(comments)) {
         comments = [];
       }
+
+      if (!author) {
+        author = 'system';
+      }
+
       comments.unshift({
-        author: 'system',
+        author: author,
         date: Date.now(),
         body: comment,
         type: type

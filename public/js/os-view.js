@@ -11,7 +11,12 @@ define(
     },
     render: function () {
       var model = this.model.toJSON();
+      model.selectedValue = this.selectedValue;
       this.$el.html(Handlebars.compile(tmpl)(model));
+    },
+    select: function (os) {
+      this.selectedValue = os;
+      return this;
     }
   });
 });
