@@ -12,10 +12,6 @@
 		display: block;
 	}
 
-	.save {
-		width: 90px;
-	}
-
 	.move {
 		width: 100px;
 	}
@@ -29,6 +25,10 @@
 		width: 590px;
 		p {
 			margin: 5px 0;
+		}
+		div.os-container, div.formfactor-container {
+			display: inline-block;
+			margin-bottom: 5px;
 		}
 	}
 
@@ -101,8 +101,30 @@
 			background-color: $blue;
 		}
 
-		&.device-error {
+		&.device-save {
+			width: 80px;
+			background-color: $blue;
+			display: inline-block;
+			&:before {
+				margin-right: 10px;
+				font-size: 20px;
+			}
+		}
+
+		&.device-move {
+			width: 90px;
+			background-color: $blue;
+			display: inline-block;
+			&:before {
+				margin-right: 10px;
+				font-size: 20px;
+			}
+		}
+
+		&.device-error, &.device-cancel {
+			width: 100px;
 			background-color: $red;
+			display: inline-block;
 			&:before {
 				margin-right: 10px;
 				font-size: 20px;
@@ -114,6 +136,7 @@
 		width: 100%;
 		display: block;
 		background-color: $gray;
+		margin-top: 20px;
 		h2 {
 			background-color: $black;
 			padding: 5px 10px;

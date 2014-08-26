@@ -18,7 +18,8 @@ requirejs.config({
     sinonChai: '../../node_modules/sinon-chai/lib/sinon-chai',
     mocha: '../../node_modules/mocha/mocha',
     fixtures: '../../test/browser/fixtures',
-    test: '../../test/browser'
+    test: '../../test/browser',
+    'localStorage': '../vendor/backbone.localstorage/backbone.localStorage'
   },
   shim: {
     'sinon': {

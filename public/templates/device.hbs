@@ -6,36 +6,33 @@
     </span>
   </div>
   <div class="device-info">
+    {{#or editing moving}}
+      {{#if editing}}
+        <label>OS:</label>
+        <div class='js-os-container os-container'></div>
+        <input type="text" class="version" placeholder="Version" value="{{version}}"/>
+        <input type="text" class="name" placeholder="Name" value="{{name}}"/>
+        <input type="text" class="serial" placeholder="Serial" value="{{serial}}"/>
+        <label>Form Factor:</label>
+        <div class='js-formfactor-container formfactor-container'></div>
+        <div>
+          <a href="#" class="device-save save">Save</a>
+          <a href="#" class="device-error cancel">Cancel</a>
+        </div>
+        {{else}} {{#if moving}}
+          <label>Where would you like to send this device?</label>
+          <div class='js-location-container location-container'></div>
+          <div>
+            <a href="#" class="device-move saveMove">Move</a>
+            <a href="#" class="device-error cancel">Cancel</a>
+          </div>
+      {{/if}}{{/if}}
+    {{else}}
       <p>{{os}} {{version}}</p>
-      <h5>{{name}} <i class="icon-poo"></i></h5>
+      <h5>{{name}} <i class="icon-poo edit"></i></h5>
       <p>Serial: {{serial}}</p>
-      <p>Location: {{location}} <i class="icon-truck"></i></p>
+      <p>Location: {{location}} <i class="icon-truck move"></i></p>
       <p>Form Factor: {{formfactor}}</p>
-
-      <!-- inputs to replace text above when in edit mode -->
-      <input type="text" class="author" placeholder="Windows 8"/>
-      <input type="text" class="author" placeholder="IBM Thinkpad"/>
-      <input type="text" class="author" placeholder="Serial"/>
-      <label>Form Factor:</label>
-      <select>
-        <option>Phone</option>
-        <option>Tablet</option>
-        <option>Laptop</option>
-        <option>Misc</option>
-      </select>
-      <a href="#" class="device-error save">SAVE</a>
-      <!-- End -->
-
-      <!-- Edit form for if the device moves location -->
-      <label>Where would you like to send this device?</label>
-      <select>
-        <option>Boise</option>
-        <option>Chicago</option>
-        <option>LA</option>
-        <option>Seattle</option>
-      </select>
-      <a href="#" class="device-error move">MOVE</a>
-      <!-- End -->
 
       <div class="device-actions">
         {{#if isCheckedOut}}
@@ -43,18 +40,20 @@
         {{else}}
           <a href="#" class="check-out"><i class="icon-check-out"></i>CHECK OUT</a>
         {{/if}}
-        {{!--
-          <a href="#" class="device-error icon-warning">DEVICE ERROR</a>
-          --}}
       </div>
+    {{/or}}
   </div>
+
+  {{!--
   <div class="comment-form">
     <textarea class="comment-text"></textarea>
     <input type="text" class="author" placeholder="author"/><a href="#" class="comment">Add comment</a>
   </div>
+  --}}
+
   <div class="comments">
 
-      <h2>Comments</h2>
+      <h2>Comments <small class='right'>+</small></h2>
       <section>
         {{#each comments}}
           <div class="{{type}}">

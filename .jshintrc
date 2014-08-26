@@ -105,5 +105,5 @@
     ],
     "indent"        : 2,         // Specify indentation spacing
     "quotmark"      : "single",
-    "maxlen"        : 100
+    "maxlen"        : 140
 }

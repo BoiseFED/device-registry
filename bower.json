@@ -27,6 +27,7 @@
     "sinonjs": "~1.10.2",
     "underscore.string": "~2.3.3",
     "swag": "~0.7.0",
-    "backbone.keyboard": "~0.1.0"
+    "backbone.keyboard": "~0.1.0",
+    "backbone.localstorage": "~1.1.13"
   }
 }
